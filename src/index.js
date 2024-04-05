@@ -2,7 +2,6 @@
 const buttonAddRandom = document.querySelector("#btn-add-random");
 const tableBody = document.querySelector("tbody#contacts");
 
-
 // ITERATION 0 | Example Row
 // Splice 1 element from the contacts array at the random index
 const randomIndex = Math.floor(Math.random() * contacts.length);
@@ -30,31 +29,106 @@ exampleRow.innerHTML = `
 
 tableBody.appendChild(exampleRow);
 
-
-
-
-
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
 const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
 
+// ITERATION 1 - Display 3 Contacts
+// Get the first 3 contacts from the 'contacts' array without modifying the original array.
+const firstThreeContacts = contacts.slice(0, 3);
 
-  
-  // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
+// Iterate over the first 3 contacts and create table rows
+firstThreeContacts.forEach((contact) => {
+  // Create a new table row
+  const newRow = document.createElement("tr");
 
-  // ITERATION 3 - Like Buttons
+  // Populate the row with contact information
+  newRow.innerHTML = `
+        <td>${contact.name}</td>
+        <td>${contact.email}</td>
+        <td>${contact.phoneNumber}</td>
+    `;
 
-  // Your code goes here ...
+  // Append the new row to the table body
+  document.getElementById("contactTableBody").appendChild(newRow);
+});
 
-  
-  
+// ITERATION 2 - Delete Buttons
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the table body element
+  const tableBody = document.getElementById("contactTableBody");
 
+  // Iterate over each contact
+  contacts.forEach((contact) => {
+    // Create a new table row
+    const newRow = document.createElement("tr");
+
+    // Populate the row with contact information
+    newRow.innerHTML = `
+          <td>${contact.name}</td>
+          <td>${contact.email}</td>
+          <td>${contact.phoneNumber}</td>
+          <td><button class="delete-btn">Delete</button></td>
+      `;
+
+    // Append the new row to the table body
+    tableBody.appendChild(newRow);
+
+    // Add event listener to delete button
+    const deleteButton = newRow.querySelector(".delete-btn");
+    deleteButton.addEventListener("click", function () {
+      // Remove the row when delete button is clicked
+      tableBody.removeChild(newRow);
+    });
+  });
+});
+
+// ITERATION 3 - Like Buttons
+
+// ITERATION 3 - Like Buttons
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the table body element
+  const tableBody = document.getElementById("contactTableBody");
+
+  // Iterate over each contact
+  contacts.forEach((contact) => {
+    // Create a new table row
+    const newRow = document.createElement("tr");
+
+    // Populate the row with contact information
+    newRow.innerHTML = `
+          <td>${contact.name}</td>
+          <td>${contact.email}</td>
+          <td>${contact.phoneNumber}</td>
+          <td>
+              <button class="delete-btn">Delete</button>
+              <button class="like-btn">Like</button>
+          </td>
+      `;
+
+    // Append the new row to the table body
+    tableBody.appendChild(newRow);
+
+    // Add event listener to delete button
+    const deleteButton = newRow.querySelector(".delete-btn");
+    deleteButton.addEventListener("click", function () {
+      // Remove the row when delete button is clicked
+      tableBody.removeChild(newRow);
+    });
+
+    // Add event listener to like button
+    const likeButton = newRow.querySelector(".like-btn");
+    let isLiked = false; // Flag to track if contact is liked
+    likeButton.addEventListener("click", function () {
+      // Toggle like status and update button appearance
+      isLiked = !isLiked;
+      likeButton.textContent = isLiked ? "Unlike" : "Like";
+      // You can add additional functionality here, such as changing button color or icon
+    });
+  });
+});
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
