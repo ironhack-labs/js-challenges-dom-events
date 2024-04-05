@@ -76,6 +76,8 @@ threeContacts.forEach((currentContact) => {
 // addEventListener("event type", () => {})
 
 buttonAddRandom.addEventListener("click", () => {
+  const randomIndex = Math.floor(Math.random() * contacts.length);
+  const randomContact = contacts[randomIndex];
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
   <td>
