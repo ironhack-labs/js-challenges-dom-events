@@ -2,22 +2,14 @@
 const buttonAddRandom = document.querySelector("#btn-add-random");
 const tableBody = document.querySelector("tbody#contacts");
 
-
-// ITERATION 0 | Example Row
-// Splice 1 element from the contacts array at the random index
-const randomIndex = Math.floor(Math.random() * contacts.length);
-const splicedArr = contacts.splice(randomIndex, 1);
-
-// Get the element from the spliced array
-const randomContact = splicedArr[0];
-
-const exampleRow = document.createElement("tr");
-exampleRow.innerHTML = `
+// Helper functions
+const generateRow = (contact) => {
+  return `
   <td>
-    <img src="${randomContact.pictureUrl}" />
+    <img src="${contact.pictureUrl}" />
   </td>
-  <td> ${randomContact.name} </td>
-  <td> ${randomContact.popularity.toFixed(2)} </td>
+  <td> ${contact.name} </td>
+  <td> ${contact.popularity.toFixed(2)} </td>
   <td>
     <button class="btn-delete">Delete</button>
   </td>
@@ -27,35 +19,33 @@ exampleRow.innerHTML = `
     </button>
   </td>
 `;
+};
 
-tableBody.appendChild(exampleRow);
+const addContact = (contact) => {
+  const row = document.createElement("tr");
+  row.innerHTML = generateRow(contact);
+  tableBody.appendChild(row);
 
-
-
-
-
-// ITERATION 1 - Display 3 contacts
-// Get the first 3 contacts from the 'contacts' array.
-const threeContacts = contacts.splice(0, 3);
-
-// Your code goes here ...
-
-
-  
   // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
+  row
+    .querySelector(".btn-delete")
+    .addEventListener("click", () => row.remove());
 
   // ITERATION 3 - Like Buttons
+  const btnLike = row.querySelector(".btn-like");
+  btnLike.addEventListener("click", () => btnLike.classList.toggle("selected"));
+};
 
-  // Your code goes here ...
+const addRandomContact = () => {
+  const randomIndex = Math.floor(Math.random() * contacts.length);
+  addContact(contacts.splice(randomIndex, 1)[0]);
+};
 
-  
-  
+// ITERATION 0 | Example Row
+addRandomContact();
 
+// ITERATION 1 - Display 3 contacts
+contacts.splice(0, 3).forEach((contact) => addContact(contact));
 
 // Bonus: ITERATION 4 - Add Random Contacts
-
-// Your code goes here ...
+buttonAddRandom.addEventListener("click", () => addRandomContact());
