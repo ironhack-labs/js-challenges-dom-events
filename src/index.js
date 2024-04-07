@@ -30,13 +30,8 @@ exampleRow.innerHTML = `
 tableBody.appendChild(exampleRow);
 
 // ITERATION 1 - Display 3 contacts
-// Get the first 3 contacts from the 'contacts' array.
-const threeContacts = contacts.slice(0, 3);
 
-// Your code goes here ...
-const firstContact = threeContacts[0];
-
-// Function to create a row for a contact
+// create a row for a contact
 function createRow(contact) {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
@@ -55,13 +50,13 @@ function createRow(contact) {
     </td>
   `;
 
-  // Add event listener to delete button
+  // add event listener to delete button
   const deleteButton = newRow.querySelector(".btn-delete");
   deleteButton.addEventListener("click", function () {
     newRow.remove();
   });
 
-  // Add event listener to like button
+  // add event listener to like button
   const likeButton = newRow.querySelector(".btn-like");
   likeButton.addEventListener("click", function () {
     likeButton.classList.toggle("selected");
@@ -70,7 +65,7 @@ function createRow(contact) {
   return newRow;
 }
 
-// Iterate over the first 3 contacts and create rows for them
+// iterate over the first 3 contacts and create rows
 const firstThreeContacts = contacts.slice(0, 3);
 firstThreeContacts.forEach((contact) => {
   const newRow = createRow(contact);
