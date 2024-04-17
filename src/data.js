@@ -1,4 +1,4 @@
-const contacts = [
+const contacts = [ 
   {
     name: "Arnold Schwarzenegger",
     pictureUrl: "https://image.tmdb.org/t/p/w500/sOkCXc9xuSr6v7mdAq9LwEBje68.jpg",
