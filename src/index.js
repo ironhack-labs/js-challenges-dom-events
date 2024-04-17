@@ -36,23 +36,75 @@ tableBody.appendChild(exampleRow);
 
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
+
 const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
 
+threeContacts.forEach(contact => {
+  const contactRow = document.createElement("tr");
+  contactRow.innerHTML = `
+    <td>
+      <img src="${contact.pictureUrl}" />
+    </td>
+    <td>${contact.name}</td>
+    <td>${contact.popularity.toFixed(2)}</td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+    <button class="btn-like"><img src="./images/icon.png" alt="like" /></button>
+    </td>
+  `;
+  tableBody.appendChild(contactRow);
+});
 
+// ITERATION 2 - Delete Buttons
   
-  // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
+// Your code goes here ...
+
+const table = document.getElementById("contacts");
+contacts.forEach(contact => {
+
+    const newRow = document.createElement("tr");
+    const deleteCell = newRow.insertCell();
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteCell.appendChild(deleteButton);
+
+    deleteButton.addEventListener("click", function() {
+        newRow.remove();
+    });
+
+    table.appendChild(newRow);
+});
   
   
 
-  // ITERATION 3 - Like Buttons
+// ITERATION 3 - Like Buttons
 
-  // Your code goes here ...
+// Your code goes here ...
 
-  
+const table = document.getElementById("contacts");
+
+contacts.forEach(contact => {
+
+  const newRow = document.createElement("tr");
+    
+    const likeCell = newRow.insertCell();
+    const likeButton = document.createElement("button");
+    likeButton.textContent = "Like";
+    likeButton.className = "btn-like"; []
+    likeCell.appendChild(likeButton);
+
+    likeButton.addEventListener("click", function() {
+
+      newRow.classList.toggle("selected");
+    });
+
+    table.appendChild(newRow);
+});
+
   
 
 
