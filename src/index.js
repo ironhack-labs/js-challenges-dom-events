@@ -59,7 +59,10 @@ threeContacts.forEach(contact => {
   })
 
   // ITERATION 3 - Like Buttons
-  
+  const likebutton = contactRow.querySelector(".btn-like");
+  likebutton.addEventListener("click", () => {
+    likebutton.classList.toggle("selected");
+  })
 
 
 
@@ -67,19 +70,6 @@ threeContacts.forEach(contact => {
 });
 
   
-  // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
-
-  // ITERATION 3 - Like Buttons
-
-  // Your code goes here ...
-
-  
-  
-
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
