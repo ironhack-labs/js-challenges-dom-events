@@ -29,6 +29,19 @@ exampleRow.innerHTML = `
 `;
 
 tableBody.appendChild(exampleRow);
+let button = exampleRow.querySelector(".btn-delete");
+button.onclick = function() {
+  exampleRow.remove();
+};
+
+let buttonLike = exampleRow.querySelector(".btn-like");
+buttonLike.onclick = function() {
+  if (buttonLike.className == "btn-like") {
+    buttonLike.className = "btn-like selected"; 
+  } else {
+    buttonLike.className = "btn-like";
+  }
+};
 
 
 
@@ -39,7 +52,43 @@ tableBody.appendChild(exampleRow);
 const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
+threeContacts.forEach(e => {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+  <td>
+    <img src="${e.pictureUrl}" />
+  </td>
+  <td> ${e.name} </td>
+  <td> ${e.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`;
 
+  tableBody.appendChild(row);
+
+  // delete 
+  let buttonDelete = row.querySelector(".btn-delete");
+  buttonDelete.onclick = function() {
+    row.remove();
+  };
+
+  // like
+  let buttonLike = row.querySelector(".btn-like");
+  buttonLike.onclick = function() {
+    if (buttonLike.className == "btn-like") {
+      buttonLike.className = "btn-like selected"; 
+    } else {
+      buttonLike.className = "btn-like";
+    }
+  };
+
+});
 
   
   // ITERATION 2 - Delete Buttons
