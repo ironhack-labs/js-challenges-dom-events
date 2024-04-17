@@ -39,6 +39,30 @@ tableBody.appendChild(exampleRow);
 const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
+threeContacts.forEach((contact) => {
+  const firstRow = document.createElement("tr");
+  firstRow.innerHTML =
+  `
+  <td>
+    <img src="${contact.pictureUrl}" />
+  </td>
+  <td> ${contact.name} </td>
+  <td> ${contact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+  `;
+
+  tableBody.appendChild(firstRow)
+
+
+
+  
 
 
   
@@ -46,16 +70,52 @@ const threeContacts = contacts.splice(0, 3);
   
   // Your code goes here ...
   
+  const deleteButton = firstRow.querySelector(".btn-delete");
+  deleteButton.addEventListener("click", () => {
+   firstRow.remove();
+  })
+
   
+
 
   // ITERATION 3 - Like Buttons
 
   // Your code goes here ...
+const likeButton = firstRow.querySelector(".btn-like");
+console.log(likeButton)
+likeButton.addEventListener("click", ()=>{
+likeButton.classList.toggle("selected");
 
-  
-  
+})
+})
 
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
 // Your code goes here ...
+
+
+buttonAddRandom.addEventListener("click", ()=>{
+ // newRow.add(Math.floor(Math.random()* contacts.length))
+ const randomIndex = Math.floor(Math.random() * contacts.length);
+ const splicedArr = contacts.splice(randomIndex, 1);
+ 
+ // Get the element from the spliced array
+ const contact = splicedArr[0];
+    const newRow = document.createElement("tr");
+  newRow.innerHTML = `<td>
+    <img src="${contact.pictureUrl}" />
+  </td>
+  <td> ${contact.name} </td>
+  <td> ${contact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>`
+  tableBody.appendChild(newRow) 
+})
+
