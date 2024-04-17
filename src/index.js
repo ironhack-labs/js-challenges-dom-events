@@ -50,18 +50,19 @@ for (contact of threeContacts) {
 </td>
 `;
 
-const deleteButton = newRow.querySelector(".btn-delete");
-deleteButton.addEventListener("click", (e) => {
-  newRow.remove();
-});
-  tableBody.append(newRow);
+  const deleteButton = newRow.querySelector(".btn-delete");
+  deleteButton.addEventListener("click", (e) => {
+    newRow.remove();
+  });
   const likeButtonRow1 = newRow.querySelector(".btn-like");
-  
+
   likeButtonRow1.addEventListener("click", (e) => {
     likeButtonRow1.classList.toggle("selected");
+
+    tableBody.append(newRow);
   });
 }
 
-function createNewRow() {
+/* function createNewRow() {
 
-}
+} */
