@@ -8,6 +8,7 @@ const tableBody = document.querySelector("tbody#contacts");
 const randomIndex = Math.floor(Math.random() * contacts.length);
 const splicedArr = contacts.splice(randomIndex, 1);
 
+
 // Get the element from the spliced array
 const randomContact = splicedArr[0];
 
@@ -39,23 +40,49 @@ tableBody.appendChild(exampleRow);
 const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
-
-
-  
-  // ITERATION 2 - Delete Buttons
+threeContacts.forEach((celebrity) => {
+  let celebrityRow = document.createElement("tr")
+  celebrityRow.innerHTML = `
+  <td>
+    <img src="${celebrity.pictureUrl}" />
+  </td>
+  <td> ${celebrity.name} </td>
+  <td> ${celebrity.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`;
+tableBody.appendChild(celebrityRow);
+ 
+// ITERATION 2 - Delete Buttons
   
   // Your code goes here ...
-  
-  
+  const deleteBtn = celebrityRow.querySelectorAll(".btn-delete");
+  deleteBtn.forEach((item) => {
+    item.addEventListener("click",() => {
+      celebrityRow.remove();
+    });
+  });
 
   // ITERATION 3 - Like Buttons
-
-  // Your code goes here ...
-
-  
-  
-
-
+ const likeBtn = celebrityRow.querySelectorAll(".btn-like");
+  likeBtn.forEach((button) => {
+    button.addEventListener("click",() => {
+      button.classList.toggle("selected");
+    })
+  });
 // Bonus: ITERATION 4 - Add Random Contacts
+  const randomBtn = document.getElementById("btn-add-random");
+  const existingRow = document.getElementById("contacts")
+  randomBtn.addEventListener("click", () => {
+    const newRow = existingRow.cloneNode(true); // Clone the existing <tr> element
+    const containerElm = document.getElementById("randomContact");
+    containerElm.appendChild(newRow);
+});
+  });
 
-// Your code goes here ...
