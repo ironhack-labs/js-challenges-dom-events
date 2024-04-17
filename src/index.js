@@ -57,7 +57,7 @@ threeContacts.forEach(contact => {
     </button>
   </td>
 `;
-
+// ITERATION 2 - Delete Buttons
 const deleteButton = rowContact.querySelector(".btn-delete");
 console.log(deleteButton)
 deleteButton.addEventListener('click', function(){
@@ -66,24 +66,37 @@ deleteButton.addEventListener('click', function(){
   if (rowContact) {
       rowContact.remove();
   }
-})  
+}) 
+
 
 tableBody.appendChild(rowContact);
 });
 
 
-  
-  // ITERATION 2 - Delete Buttons
-  
-  
-  
+ 
+const allContacts = contacts.slice();  
+buttonAddRandom.addEventListener('click', function() {
+  const randomIndex = Math.floor(Math.random() * allContacts.length);
+  const randomContact = allContacts[randomIndex];
+  const addRandom = document.createElement("tr");
+  addRandom.innerHTML = `
+    <td>
+      <img src="${randomContact.pictureUrl}" />
+    </td>
+    <td> ${randomContact.name} </td>
+    <td> ${randomContact.popularity.toFixed(2)} </td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+    </td>
+  `;
+  tableBody.appendChild(addRandom);
+});
 
-  // ITERATION 3 - Like Buttons
-
-  // Your code goes here ...
-  
-
-  
   
 
 
