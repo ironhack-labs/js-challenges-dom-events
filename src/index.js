@@ -8,6 +8,8 @@ const tableBody = document.querySelector("tbody#contacts");
 const randomIndex = Math.floor(Math.random() * contacts.length);
 const splicedArr = contacts.splice(randomIndex, 1);
 
+
+
 // Get the element from the spliced array
 const randomContact = splicedArr[0];
 
@@ -38,19 +40,56 @@ tableBody.appendChild(exampleRow);
 // Get the first 3 contacts from the 'contacts' array.
 const threeContacts = contacts.splice(0, 3);
 
+
+
 // Your code goes here ...
 
+threeContacts.forEach((eachContact)=>{
+  
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
+  <td>
+    <img src="${eachContact.pictureUrl}" />
+  </td>
+  <td> ${eachContact.name} </td>
+  <td> ${eachContact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`;
+
+  tableBody.appendChild(newRow);  
+})
 
   
-  // ITERATION 2 - Delete Buttons
+
+// Iterate over the newly obtained array of 3 contacts and, for each contact, create a new table row and append it to the table body.
+// You can use the Iteration 0 code as an example of how to create a new table row and what its structure should be.
+// Append each new table row to the table body.You can use the appendChild() method for this.
+
   
-  // Your code goes here ...
+//   ITERATION 2 - Delete Buttons
+  
+//   Your code goes here ...
+
+const deleteButtons = document.querySelector('#btn-delete')
+
+deleteButtons.addEventListener('click', () = {
+  
+
+}
+
   
   
 
-  // ITERATION 3 - Like Buttons
+//   ITERATION 3 - Like Buttons
 
-  // Your code goes here ...
+//   Your code goes here ...
 
   
   
