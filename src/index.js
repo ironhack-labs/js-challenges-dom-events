@@ -46,7 +46,7 @@ likeButtonElement.addEventListener("click", () => {
 // Get the first 3 contacts from the 'contacts' array.
 
 // ITERATION 2 - Delete Buttons
-  
+
 // ITERATION 3 - Like Buttons
 
 // Your code goes here ...
@@ -92,41 +92,45 @@ threeContacts.forEach(element => {
 const randomAddButtonElement = document.querySelector('#btn-add-random');
 
 randomAddButtonElement.addEventListener("click", () => {
-  const randomIndex = Math.floor(Math.random() * contacts.length);
-  const splicedArr = contacts.splice(randomIndex, 1);
+  if (contacts.length === 0) {
+    alert('All Ironhack contactlist already pulled');
+  } else {
+    const randomIndex = Math.floor(Math.random() * contacts.length);
+    const splicedArr = contacts.splice(randomIndex, 1);
 
-  const randomContact = splicedArr[0];
+    const randomContact = splicedArr[0];
 
-  const randomRow = document.createElement("tr");
-  randomRow.innerHTML = `
-    <td>
-      <img src="${randomContact.pictureUrl}" />
-    </td>
-    <td> ${randomContact.name} </td>
-    <td> ${randomContact.popularity.toFixed(2)} </td>
-    <td>
-      <button class="btn-delete">Delete</button>
-    </td>
-    <td>
-      <button class="btn-like">
-        <img src="./images/icon.png" alt="like" />
-      </button>
-    </td>
-  `;
+    const randomRow = document.createElement("tr");
+    randomRow.innerHTML = `
+      <td>
+        <img src="${randomContact.pictureUrl}" />
+      </td>
+      <td> ${randomContact.name} </td>
+      <td> ${randomContact.popularity.toFixed(2)} </td>
+      <td>
+        <button class="btn-delete">Delete</button>
+      </td>
+      <td>
+        <button class="btn-like">
+          <img src="./images/icon.png" alt="like" />
+        </button>
+      </td>
+    `;
 
-  tableBody.appendChild(randomRow);
+    tableBody.appendChild(randomRow);
 
-  console.log(contacts);
+    console.log(contacts);
 
-  const deleteButtonElement = randomRow.querySelector('.btn-delete');
-  deleteButtonElement.addEventListener("click", () => {
-    randomRow.remove();
-    contacts.push(randomContact);
-    console.log(contacts)
-  });
+    const deleteButtonElement = randomRow.querySelector('.btn-delete');
+    deleteButtonElement.addEventListener("click", () => {
+      randomRow.remove();
+      contacts.push(randomContact);
+      console.log(contacts)
+    });
 
-  const likeButtonElement = randomRow.querySelector('.btn-like');
-  likeButtonElement.addEventListener("click", () => {
-    likeButtonElement.classList.toggle('selected');
-  });
+    const likeButtonElement = randomRow.querySelector('.btn-like');
+    likeButtonElement.addEventListener("click", () => {
+      likeButtonElement.classList.toggle('selected');
+    });
+  };
 })
