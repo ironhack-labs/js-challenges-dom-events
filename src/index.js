@@ -68,6 +68,13 @@ deleteButton.addEventListener('click', function(){
   }
 }) 
 
+const likeButton = rowContact.querySelector(".btn-like");
+console.log(likeButton);
+likeButton.addEventListener('click', function(){
+    likeButton.classList.toggle("selected");
+  
+})
+
 
 tableBody.appendChild(rowContact);
 });
