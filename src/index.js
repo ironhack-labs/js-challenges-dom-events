@@ -45,7 +45,9 @@ const threeContacts = contacts.splice(0, 3);
   // ITERATION 2 - Delete Buttons
   
   // Your code goes here ...
-  
+  newExampleRow.querySelector(".btn-delete").addEventListener("click", () => {
+    newExampleRow.remove();
+  });
   
 
   // ITERATION 3 - Like Buttons
