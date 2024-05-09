@@ -25,12 +25,16 @@ const createNewRow = (contact) => {
 `;
   tableBody.appendChild(newRow)
   
+  // ITERATION 2 - Delete Buttons
+
   const btnDelete = newRow.querySelector(".btn-delete")
   btnDelete.addEventListener("click", () => {
     tableBody.removeChild(newRow);
     contacts.push(contact);
   })
   
+  // ITERATION 3 - Like Buttons
+
   const btnLike = newRow.querySelector(".btn-like")
   btnLike.addEventListener("click", () => btnLike.classList.toggle("selected"))
 }
@@ -53,20 +57,8 @@ const threeContacts = contacts.splice(0, 3);
 
 threeContacts.forEach(contact => createNewRow(contact))
 
-  
- // ITERATION 2 - Delete Buttons
-  
- // Your code goes here ...
-
- // ITERATION 3 - Like Buttons
-  
-
-  
-  
-  
-
 
 // Bonus: ITERATION 4 - Add Random Contacts
 const btnAddRnd = document.querySelector('#btn-add-random');
-btnAddRnd.addEventListener('click', () => createNewRow(contacts[Math.floor(Math.random() * contacts.length)]));
+btnAddRnd.addEventListener('click', () => contacts.length ? createNewRow(contacts.splice([Math.floor(Math.random() * contacts.length)], 1)[0]): alert('No More contacts to add')) ;
 // Your code goes here ...
