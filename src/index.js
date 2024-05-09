@@ -60,5 +60,7 @@ threeContacts.forEach(contact => createNewRow(contact))
 
 // Bonus: ITERATION 4 - Add Random Contacts
 const btnAddRnd = document.querySelector('#btn-add-random');
-btnAddRnd.addEventListener('click', () => contacts.length ? createNewRow(contacts.splice([Math.floor(Math.random() * contacts.length)], 1)[0]): alert('No More contacts to add')) ;
-// Your code goes here ...
+btnAddRnd.addEventListener('click', () => 
+  contacts.length ? 
+createNewRow(contacts.splice([Math.floor(Math.random() * contacts.length)], 1)[0]) 
+: alert('No More contacts to add')) ;
