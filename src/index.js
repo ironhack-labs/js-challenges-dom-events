@@ -6,7 +6,7 @@ const tableBody = document.querySelector("tbody#contacts");
 // ITERATION 0 | Example Row
 // Splice 1 element from the contacts array at the random index
 // Create a new Tr from a contact 
-const createNewTr = (contact) => {
+const createNewRow = (contact) => {
   const newRow = document.createElement("tr")
   newRow.innerHTML = `
   <td>
@@ -26,7 +26,10 @@ const createNewTr = (contact) => {
   tableBody.appendChild(newRow)
   
   const btnDelete = newRow.querySelector(".btn-delete")
-  btnDelete.addEventListener("click", () => tableBody.removeChild(newRow))
+  btnDelete.addEventListener("click", () => {
+    tableBody.removeChild(newRow);
+    contacts.push(contact);
+  })
   
   const btnLike = newRow.querySelector(".btn-like")
   btnLike.addEventListener("click", () => btnLike.classList.toggle("selected"))
@@ -40,7 +43,7 @@ const splicedArr = contacts.splice(randomIndex, 1);
 //const randomContact = splicedArr[0];
 
 //REFACTOR randomContact adding
-createNewTr(splicedArr[0])
+createNewRow(splicedArr[0])
 
 
 // ITERATION 1 - Display 3 contacts
@@ -48,7 +51,7 @@ createNewTr(splicedArr[0])
 const threeContacts = contacts.splice(0, 3);
 // Your code goes here ...
 
-threeContacts.forEach(contact => createNewTr(contact))
+threeContacts.forEach(contact => createNewRow(contact))
 
   
  // ITERATION 2 - Delete Buttons
@@ -65,5 +68,5 @@ threeContacts.forEach(contact => createNewTr(contact))
 
 // Bonus: ITERATION 4 - Add Random Contacts
 const btnAddRnd = document.querySelector('#btn-add-random');
-btnAddRnd.addEventListener('click', () => createNewTr(contacts[Math.floor(Math.random() * contacts.length)]));
+btnAddRnd.addEventListener('click', () => createNewRow(contacts[Math.floor(Math.random() * contacts.length)]));
 // Your code goes here ...
