@@ -39,8 +39,26 @@ tableBody.appendChild(exampleRow);
 const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
+const contactOne = splicedArr[1]
+const contactOneRow = document.createElement("tr")
+contactOneRow.innerHTML =`
+<td>
+  <img src="${contactOne.pictureUrl}" />
+</td>
+<td> ${contactOne.name} </td>
+<td> ${contactOne.popularity.ToFixed(2)} </td>
+<td>
+    <button class="btn-delete">Delete</button>
+  </td>
+<td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`
 
-
+const contactTwo = splicedArr[2]
+const contactThree = splicedArr[3]
   
   // ITERATION 2 - Delete Buttons
   
