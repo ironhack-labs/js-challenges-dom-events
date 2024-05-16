@@ -42,7 +42,8 @@ threeContacts.forEach((contact) => {
   // Like button
   const likeButton = aRow.querySelector(".btn-like");
   likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("btn-like-selected");
+    // likeButton.classList.toggle("btn-like-selected");
+    likeButton.classList.toggle("selected"); // <button class="btn-like selected">
   });
 });
 
@@ -81,6 +82,7 @@ randomButton.addEventListener("click", () => {
   // Like button
   const likeButton = randomRow.querySelector(".btn-like");
   likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("btn-like-selected");
+    // likeButton.classList.toggle("btn-like-selected");
+    likeButton.classList.toggle("selected");
   });
 });
