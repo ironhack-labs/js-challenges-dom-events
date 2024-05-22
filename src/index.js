@@ -25,7 +25,6 @@ exampleRow.innerHTML = `
     </button>
   </td>
 `;
-
 tableBody.appendChild(exampleRow);
 
 // ITERATION 1 - Display 3 contacts
@@ -33,58 +32,60 @@ tableBody.appendChild(exampleRow);
 
 // Your code goes here ...
 
-const splicedArray = contacts.splice(0, 3);
-splicedArray.forEach((contact) => {
+const index = Math.floor(Math.random() * contacts.length);
+let ThreeContacts = contacts.splice(0, 3);
+
+ThreeContacts.forEach((contact) => {
   const row = document.createElement("tr");
   row.innerHTML = `
-  <td>
-    <img src="${contact.pictureUrl}" />
-  </td>
-  <td> ${contact.name} </td>
-  <td> ${contact.popularity.toFixed(2)} </td>
-  <td>
-    <button class="btn-delete">Delete</button>
-  </td>
-  <td>
-    <button class="btn-like">
-      <img src="./images/icon.png" alt="like" />
-    </button>
-  </td>
-`;
-
+    <td>
+      <img src="${contact.pictureUrl}" />
+    </td>
+    <td> ${contact.name} </td>
+    <td> ${contact.popularity.toFixed(2)} </td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+    </td>
+  `;
   tableBody.appendChild(row);
 });
 
-const newRow = document.createwElement("tr");
-newRow.classList.add("tr");
-
-const buttonCell = document.createAttribute("td");
-
-const removeButton = newRow.querySelectorAll("#contact button");
-removeButton.textContent = "Remove";
-removeButton.addEventListener("click", function () {
-  newRow.remove();
-});
-buttonCell.appendChild(removeButton);
-newRow.appendChild(buttonCell);
-tableBody.appendChild(newRow);
-
+// ITERATION 2- DELETE Buttons
 // Your code goes here ...
+
+document.addEventListener("DOMContentLoaded", () => {
+  const tableBody = document.querySelector("#contacts");
+  tableBody.addEventListener("click", function (event) {
+    if (event.target.classList.contains("btn-delete")) {
+      event.target.closest("tr").remove();
+    }
+  });
+});
 
 // ITERATION 3 - Like Buttons
 
 // Your code goes here ...
-function createLikeRow() {
-  var newLikeRow = document.createElement("tr");
-  var likeButton = document.createElement("button");
-  likeButton.textContent = "Like";
-  likeButton.className = "btn-like";
-  likeButton.addEventListener("click", function () {
-    newLikeRow.classList.toggle("selected");
+document.addEventListener("DOMContentLoaded", () => {
+  const tableBody = document.querySelector("#contacts");
+  tableBody.addEventListener("click", function (event) {
+    if (event.target.classList.contains("btn-like")) {
+      const buttonElement = event.target;
+      const row = buttonElement.closest("tr");
+      row.classList.toggle("liked");
+      if (row.classList.contains("Liked")) {
+        buttonElement.textContent = "Unlike";
+      } else {
+        buttonElement.textContent = "Like";
+      }
+    }
   });
-  newLikeRow.appendChild(likeButton);
-  table.appendChild(newLikeRow);
-}
+});
+
 // Bonus: ITERATION 4 - Add Random Contacts
 
 // Your code goes here ...
