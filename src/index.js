@@ -48,7 +48,7 @@ threeContacts.forEach((contact) => {
 const addRandomContact = document.querySelector("#btn-add-random");
 addRandomContact.addEventListener("click", () => {
   const randomIndex = Math.floor(Math.random() * contacts.length);
-  const randomContact = contacts.splice(randomIndex, 1)[0];
+  const randomContact = contacts.slice().splice(randomIndex, 1)[0];
   const newRow = createNewContactRow(randomContact);
   tableBody.appendChild(newRow);
 });
