@@ -2,17 +2,17 @@
 const buttonAddRandom = document.querySelector("#btn-add-random");
 const tableBody = document.querySelector("tbody#contacts");
 
-
 // ITERATION 0 | Example Row
 // Splice 1 element from the contacts array at the random index
 const randomIndex = Math.floor(Math.random() * contacts.length);
 const splicedArr = contacts.splice(randomIndex, 1);
 
-// Get the element from the spliced array
-const randomContact = splicedArr[0];
+// ITERATION 1 - Display 3 contacts
+// Get the first 3 contacts from the 'contacts' array.
 
-const exampleRow = document.createElement("tr");
-exampleRow.innerHTML = `
+function createNewContactRow(randomContact) {
+  const row = document.createElement("tr");
+  row.innerHTML = `
   <td>
     <img src="${randomContact.pictureUrl}" />
   </td>
@@ -28,34 +28,29 @@ exampleRow.innerHTML = `
   </td>
 `;
 
-tableBody.appendChild(exampleRow);
-
-
-
-
-
-// ITERATION 1 - Display 3 contacts
-// Get the first 3 contacts from the 'contacts' array.
-const threeContacts = contacts.splice(0, 3);
-
-// Your code goes here ...
-
-
-  
   // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
-
+  const deleteRowButton = row.querySelector(".btn-delete");
+  deleteRowButton.addEventListener("click", () => {
+    row.remove();
+  });
   // ITERATION 3 - Like Buttons
-
-  // Your code goes here ...
-
-  
-  
-
+  const likeButton = row.querySelector(".btn-like");
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("selected");
+  });
+  return row;
+}
+const threeContacts = contacts.splice(0, 3);
+threeContacts.forEach((contact) => {
+  const newRow = createNewContactRow(contact);
+  tableBody.appendChild(newRow);
+});
 
 // Bonus: ITERATION 4 - Add Random Contacts
-
-// Your code goes here ...
+const addRandomContact = document.querySelector("#btn-add-random");
+addRandomContact.addEventListener("click", () => {
+  const randomIndex = Math.floor(Math.random()) * contacts.length;
+  const randomContact = contacts.splice(randomIndex, 1)[0];
+  const newRow = createNewContactRow(randomContact);
+  tableBody.appendChild(newRow);
+});
