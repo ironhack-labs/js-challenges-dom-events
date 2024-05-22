@@ -2,7 +2,6 @@
 const buttonAddRandom = document.querySelector("#btn-add-random");
 const tableBody = document.querySelector("tbody#contacts");
 
-
 // ITERATION 0 | Example Row
 // Splice 1 element from the contacts array at the random index
 const randomIndex = Math.floor(Math.random() * contacts.length);
@@ -30,31 +29,69 @@ exampleRow.innerHTML = `
 
 tableBody.appendChild(exampleRow);
 
-
-
-
-
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
 const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
 
+threeContacts.forEach((element) => {
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
+  <td>
+      <img src="${element.pictureUrl}" />
+    </td>
+    <td> ${element.name} </td>
+    <td> ${element.popularity.toFixed(2)} </td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+    </td>
+  `;
+  tableBody.appendChild(newRow);
+});
 
-  
-  // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
+const deleterow = document.querySelectorAll(".btn-delete");
+deleterow.forEach((del) => {
+  del.addEventListener("click", removeRow);
+});
 
-  // ITERATION 3 - Like Buttons
+function removeRow(event) {
+  const row = event.target.closest("tr");
+  console.log(row);
+  row.remove();
+}
+console.log(deleterow);
 
-  // Your code goes here ...
+const addRow = document.querySelectorAll(".btn-like");
+addRow.forEach((add) => {
+  add.addEventListener("click", toggleLike);
+});
 
-  
-  
+function toggleLike(event) {
+  if (event.target.classList.contains("selected")) {
+    event.target.classList.remove("selected");
+  } else {
+    event.target.classList.add("selected");
+  }
+}
 
+// const buttons = contactSection.querySelectorAll("button")
+// 	buttons.forEach((oneButton) => {
+// 		oneButton.addEventListener("click", handleToggleBuddy)
+// 	})
+
+// ITERATION 2 - Delete Buttons
+
+// Your code goes here ...
+
+// ITERATION 3 - Like Buttons
+
+// Your code goes here ...
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
