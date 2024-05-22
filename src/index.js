@@ -61,19 +61,19 @@ const deleteButton = contactRow.querySelector(".btn-delete");
   deleteButton.addEventListener("click", () => {
     contactRow.remove();
 
-    const likeButton = contactRow.querySelector(".btn-like");
-    likeButton.addEventListener("click",likeEffect);
+    
     
   });
 
  
 tableBody.appendChild(contactRow);
-
+const likeButton = contactRow.querySelector(".btn-like");
+    likeButton.addEventListener("click",likeEffect);
+  function likeEffect(event){
+    event.currentTarget.classList.toggle("selected")}
 
 })
 
-  function likeEffect(event){
-    event.currentTarget.classList.toggle("selected")
   // ITERATION 2 - Delete Buttons
   
   // Your code goes here ...
@@ -92,7 +92,7 @@ tableBody.appendChild(contactRow);
     // } else {
     //   event.target.classList.add("selected")
     // }
-  }
+  
   
 
 
