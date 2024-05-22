@@ -4,8 +4,6 @@ const tableBody = document.querySelector("tbody#contacts");
 
 // ITERATION 0 | Example Row
 // Splice 1 element from the contacts array at the random index
-const randomIndex = Math.floor(Math.random() * contacts.length);
-const splicedArr = contacts.splice(randomIndex, 1);
 
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
@@ -49,7 +47,7 @@ threeContacts.forEach((contact) => {
 // Bonus: ITERATION 4 - Add Random Contacts
 const addRandomContact = document.querySelector("#btn-add-random");
 addRandomContact.addEventListener("click", () => {
-  const randomIndex = Math.floor(Math.random()) * contacts.length;
+  const randomIndex = Math.floor(Math.random() * contacts.length);
   const randomContact = contacts.splice(randomIndex, 1)[0];
   const newRow = createNewContactRow(randomContact);
   tableBody.appendChild(newRow);
