@@ -70,6 +70,10 @@ td {
   margin: 0 auto;
 }
 
+.btn-like.selected {
+  background-color: #fd9a9a;
+}
+
 .btn-like:hover {
   transition: 0.2s;
   background-color: #a9a7a7;  
@@ -80,9 +84,6 @@ td {
   height: 18px;
 }
 
-.btn-like.selected {
-  background-color: #fd9a9a;
-}
 
 .btn-delete {
   border: none;
