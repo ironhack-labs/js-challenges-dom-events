@@ -60,6 +60,15 @@ threeContacts.forEach((oneContact) => {
   const deleteButton = tableRow.querySelector(".btn-delete");
   console.log(deleteButton);
   deleteButton.addEventListener("click", rowRemover);
+
+  const likeButton = document.querySelector(".btn-like");
+  likeButton.addEventListener("click", handleLikeEvent);
+  console.log(likeButton);
+
+  function handleLikeEvent(event) {
+    const button = event.currentTarget;
+    button.classList.toggle("selected");
+  }
 });
 // ITERATION 2 - Delete Buttons
 
@@ -74,14 +83,20 @@ function rowRemover(event) {
 // ITERATION 3 - Like Buttons
 
 // Your code goes here ...
-const likeButton =
-  // const buttonAddRandom = document.querySelector("#btn-add-random");
+// const likeButton = document.querySelector(".btn-like");
+// // console.log(likeButton);
+// likeButton.addEventListener("click", handleLikeEvent);
 
-  // Bonus: ITERATION 4 - Add Random Contacts
+// function handleLikeEvent() {
 
-  // Your code goes here ...
+// }
+// const buttonAddRandom = document.querySelector("#btn-add-random");
 
-  buttonAddRandom.addEventListener("click", addRandomContactEvent);
+// Bonus: ITERATION 4 - Add Random Contacts
+
+// Your code goes here ...
+
+buttonAddRandom.addEventListener("click", addRandomContactEvent);
 
 function addRandomContactEvent(event) {
   // const buttonAddRandom = event.target.closest(".btn-container");
@@ -110,4 +125,12 @@ function addRandomContactEvent(event) {
   const newDeleteButton = tableRow.querySelector(".btn-delete");
   newDeleteButton.addEventListener("click", rowRemover);
   tableBody.appendChild(tableRow);
+
+  const likeButton = tableRow.querySelector(".btn-like");
+  likeButton.addEventListener("click", handleLikeEvent);
+
+  function handleLikeEvent(event) {
+    const button = event.currentTarget;
+    button.classList.toggle("selected");
+  }
 }
