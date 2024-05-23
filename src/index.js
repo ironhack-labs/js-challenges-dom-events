@@ -6,6 +6,7 @@ const tableBody = document.querySelector("tbody#contacts");
 // Splice 1 element from the contacts array at the random index
 const randomIndex = Math.floor(Math.random() * contacts.length);
 const splicedArr = contacts.splice(randomIndex, 1);
+// console.log(splicedArr[0]);
 
 // Get the element from the spliced array
 const randomContact = splicedArr[0];
@@ -34,10 +35,6 @@ const likeButton = exampleRow.querySelector(".btn-like");
 likeButton.addEventListener("click", handleLikeEvent);
 console.log(likeButton);
 
-// function handleLikeEvent(event) {
-//   const button = event.currentTarget;
-//   button.classList.toggle("selected");
-// }
 tableBody.appendChild(exampleRow);
 
 // ITERATION 1 - Display 3 contacts
@@ -69,13 +66,10 @@ threeContacts.forEach((oneContact) => {
   tableBody.appendChild(tableRow);
 
   const deleteButton = tableRow.querySelector(".btn-delete");
-  console.log(deleteButton);
   deleteButton.addEventListener("click", rowRemover);
 
   const likeButton = tableRow.querySelector(".btn-like");
-  console.log(likeButton);
   likeButton.addEventListener("click", handleLikeEvent);
-  console.log(likeButton);
 });
 // ITERATION 2 - Delete Buttons
 function handleLikeEvent(event) {
@@ -84,9 +78,7 @@ function handleLikeEvent(event) {
 }
 
 function rowRemover(event) {
-  console.log(event.target);
   const tableRow = event.target.closest("tr");
-  console.log(tableRow);
   tableRow.remove();
 }
 // Your code goes here ...
@@ -109,7 +101,7 @@ function rowRemover(event) {
 
 buttonAddRandom.addEventListener("click", addRandomContactEvent);
 
-function addRandomContactEvent(event) {
+function addRandomContactEvent() {
   // const buttonAddRandom = event.target.closest(".btn-container");
   const randomIndex = Math.floor(Math.random() * contacts.length);
   const randomNewContact = contacts.splice(randomIndex, 1)[0];
