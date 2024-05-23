@@ -1,7 +1,8 @@
 const contacts = [
   {
     name: "Arnold Schwarzenegger",
-    pictureUrl: "https://image.tmdb.org/t/p/w500/sOkCXc9xuSr6v7mdAq9LwEBje68.jpg",
+    pictureUrl:
+      "https://image.tmdb.org/t/p/w500/sOkCXc9xuSr6v7mdAq9LwEBje68.jpg",
     popularity: 18.216362,
     wonOscar: false,
   },
@@ -18,14 +19,14 @@ const contacts = [
       "https://image.tmdb.org/t/p/w500/d9NkfCwczP0TjgrjpF94jF67SK8.jpg",
     popularity: 11.622713,
     wonOscar: false,
-  },  
+  },
   {
     name: "Gal Gadot",
     pictureUrl:
       "https://image.tmdb.org/t/p/w500/34kHAyBaBhq2kUrmhM15paEBuuI.jpg",
     popularity: 10.049256,
     wonOscar: false,
-  },  
+  },
   {
     name: "Ben Affleck",
     pictureUrl:
@@ -39,7 +40,7 @@ const contacts = [
       "https://image.tmdb.org/t/p/w500/nwS5UfMT0XUA6JEPwmt0jbNDa7B.jpg",
     popularity: 11.039487,
     wonOscar: false,
-  },  
+  },
   {
     name: "Johnny Depp",
     pictureUrl:
