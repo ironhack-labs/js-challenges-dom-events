@@ -102,3 +102,17 @@ td {
   transition: 0.2s;
   background-color: #a9a7a7;  
 }
+
+tr.selected {
+  background-color: #f0c0c0; /* Change this to your desired color */
+}
+
+/* Optional: Style for the like button when the row is selected */
+tr.selected .btn-like {
+  background-color: red;
+}
+
+/* Optional: Style for the like button when the row is selected and hovered */
+tr.selected .btn-like:hover {
+  background-color: darkred;
+}
