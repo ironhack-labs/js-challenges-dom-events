@@ -27,6 +27,9 @@ exampleRow.innerHTML = `
     </button>
   </td>
 `;
+exampleRow.querySelector(".btn-delete").addEventListener("click", deleteRow);
+
+exampleRow.querySelector(".btn-like").addEventListener("click", toggleLike);
 
 tableBody.appendChild(exampleRow);
 
@@ -56,14 +59,9 @@ threeContacts.forEach(contact => {
     </button>
   </td>
   `;
-  row.querySelector(".btn-delete").addEventListener("click", () => {
-    row.remove();
-  });
+  row.querySelector(".btn-delete").addEventListener("click", deleteRow);
 
-  const likeBtn = row.querySelector(".btn-like")
-  likeBtn.addEventListener("click", () => {
-    likeBtn.classList.toggle("selected");
-  });
+  row.querySelector(".btn-like").addEventListener("click", toggleLike);
 
   tableBody.appendChild(row);
 });
@@ -72,20 +70,22 @@ threeContacts.forEach(contact => {
   // ITERATION 2 - Delete Buttons
   
   // Your code goes here ...
-  function deleteRow(row) {
-    row.remove()
+  function deleteRow(event) {
+    const row = event.currentTarget.closest("tr");
+    if (row) {
+      row.remove();
+    }
   }
   
 
   // ITERATION 3 - Like Buttons
 
   // Your code goes here ...
-  function toggleLike(btn) {
-    btn.classList.toggle("selected");
+  function toggleLike(event) {
+    const likeBtn = event.currentTarget;
+    likeBtn.classList.toggle("selected");
   }
 
-  
-  
 
 
 // Bonus: ITERATION 4 - Add Random Contacts
@@ -113,14 +113,10 @@ buttonAddRandom.addEventListener("click", () => {
       </button>
     </td>
   `;
-  row.querySelector(".btn-delete").addEventListener("click", () => {
-    row.remove();
-  });
+  row.querySelector(".btn-delete").addEventListener("click", deleteRow);
 
-  const likeBtn = row.querySelector(".btn-like")
-  likeBtn.addEventListener("click", () => {
-    likeBtn.classList.toggle("selected");
-  });
+  row.querySelector(".btn-like").addEventListener("click", toggleLike);
+
   tableBody.appendChild(row);
 
 });
