@@ -28,6 +28,8 @@ exampleRow.innerHTML = `
   </td>
 `;
 
+exampleRow.querySelector(".btn-delete").addEventListener("click", deleteButtons);
+exampleRow.querySelector(".btn-like").addEventListener("click", toggleLike);
 tableBody.appendChild(exampleRow);
 
 
@@ -38,7 +40,27 @@ const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
 threeContacts.forEach(contact => {
-  createContactRow(contact);
+  const row = document.createElement("tr");
+  row.innerHTML = `
+  <td>
+    <img src="${contact.pictureUrl}" />
+  </td>
+  <td> ${contact.name} </td>
+  <td> ${contact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+  `;
+  row.querySelector(".btn-delete").addEventListener("click", deleteRow);
+
+  row.querySelector(".btn-like").addEventListener("click", toggleLike);
+
+  tableBody.appendChild(row);
 });
 
 
