@@ -108,3 +108,5 @@ buttonAddRandom.addEventListener("click", function () {
   // Append the new row to the table body(append the new row to the table body)
   tableBody.appendChild(row);
 });
+
+//finally
