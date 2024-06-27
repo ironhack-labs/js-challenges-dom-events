@@ -1,13 +1,9 @@
-// HTML ELEMENTS
 const buttonAddRandom = document.querySelector("#btn-add-random");
 const tableBody = document.querySelector("tbody#contacts");
 
-// ITERATION 0 | Example Row
-// Splice 1 element from the contacts array at the random index
 const randomIndex = Math.floor(Math.random() * contacts.length);
 const splicedArr = contacts.splice(randomIndex, 1);
 
-// Get the element from the spliced array
 const randomContact = splicedArr[0];
 
 const likeButton = (button) =>
@@ -42,21 +38,11 @@ const makeRow = (contact) => {
 const exampleRow = makeRow(randomContact);
 tableBody.appendChild(exampleRow);
 
-// ITERATION 1 - Display 3 contacts
-// Get the first 3 contacts from the 'contacts' array.
 const threeContacts = contacts.splice(0, 3);
-
-// Your code goes here ...
 
 const threeRows = threeContacts.map((contact) => makeRow(contact));
 
 tableBody.append(...threeRows);
-
-// ITERATION 2 - Delete Buttons
-
-// ITERATION 3 - Like Buttons
-
-// Bonus: ITERATION 4 - Add Random Contacts
 
 document.querySelector("#btn-add-random").onclick = () => {
   const randomIndex = Math.floor(Math.random() * contacts.length);
