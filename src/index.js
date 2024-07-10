@@ -40,6 +40,40 @@ const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
 
+const contactRow = document.body.querySelector("#contacts")
+
+threeContacts.forEach((contact) => {
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
+  <td>
+    <img src="${contact.pictureUrl}" />
+  </td>
+  <td> ${contact.name} </td>
+  <td> ${contact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>`;
+
+  tableBody.appendChild(newRow)
+
+  const deleteButton = newRow.querySelector(".btn-delete");
+  deleteButton.addEventListener("click", () => {
+    newRow.remove();
+  });
+
+  const likeButton = newRow.querySelector(".btn-like");
+  likeButton.addEventListener("click", () => {
+    console.log("HOLIIIIIII");
+    likeButton.classList.toggle("selected");
+  })
+  
+
+})
 
   
   // ITERATION 2 - Delete Buttons
