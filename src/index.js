@@ -31,11 +31,6 @@ exampleRow.innerHTML = `
 tableBody.appendChild(exampleRow);
 
 /*
-Get the first 3 contacts from the contacts array.
-You can use the splice() method for this.Remember that the splice() method modifies the original array, and returns the results as a new array.
-Iterate over the newly obtained array of 3 contacts and, for each contact, create a new table row and append it to the table body.
-You can use the Iteration 0 code as an example of how to create a new table row and what its structure should be.
-Append each new table row to the table body.You can use the appendChild() method for this.
 
  const buttonTags = document.querySelectorAll('button')
         const titleTag = document.querySelector('h1')
@@ -72,20 +67,50 @@ threeContacts.forEach((eachContact) => {
   tableBody.appendChild(tableContacs);
 })
 
-//})
-
-
-
-// Your code goes here ...
-
-
+  /*
   
-  // ITERATION 2 - Delete Buttons
+As you can see, each row has a Delete button. However, the buttons don't do anything yet. Let's fix that! Your task in this iteration is to add an event listener to each Delete button so that, when clicked, the corresponding row is removed from the table. You will need to do this in the same loop where you are creating the new table rows. As soon as you create a new table row, you should also add an event listener to the delete button of that row. Here are the steps you should follow:
+
+Get the Delete button element from a newly created row.
+After creating a new table row, you can call the querySelector() method on the newly created table row to search for the Delete button only inside that row, like this: newRow.querySelector(...).
+Add an event listener to the Delete button element, for the click event.
+You can use the addEventListener() method for this.
+When the Delete button is clicked, the row element should be removed from the table.
+You can use the remove() method for this.
+  
+  */
   
   // Your code goes here ...
-  
-  
+threeContacts.forEach((eachContact) => {
+  const tableContacs = document.createElement("tr");
 
+  tableContacs.innerHTML = `
+  <td>
+    <img src="${eachContact.pictureUrl}" />
+  </td>
+  <td> ${eachContact.name} </td>
+  <td> ${eachContact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`
+
+  tableBody.appendChild(tableContacs);
+})
+  
+const buttonTags = document.querySelectorAll('button')
+
+buttonTags.forEach((eachButton => {
+
+  eachButton.onclick = () => {
+    titleTag.style.color = 'red'
+  })
+  }
   // ITERATION 3 - Like Buttons
 
   // Your code goes here ...
