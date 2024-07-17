@@ -54,15 +54,14 @@ threeContacts.forEach((contact) => {
     `;
   tableBody.appendChild(newRow);
 
-  const deleteButton = newRow.querySelector("button");
+  const deleteButton = newRow.querySelector(".btn-delete");
   deleteButton.addEventListener("click", () => {
     newRow.remove();
   });
 
-  const likeButton = newRow.querySelectorAll("button")[1];
-  const likeButtonClasses = likeButton.classList;
+  const likeButton = newRow.querySelector(".btn-like");
   likeButton.addEventListener("click", () => {
-    const toggle = likeButtonClasses.toggle("selected");
+    likeButton.classList.toggle("selected");
   });
 });
 
@@ -70,6 +69,7 @@ buttonAddRandom.addEventListener("click", () => {
   const newRandomIndex = Math.floor(Math.random() * contacts.length);
   const splicedArr = contacts.splice(newRandomIndex, 1);
   const newRandomContact = splicedArr[0];
+  const randomRow = document.createElement("tr");
   randomRow.innerHTML = `
    <td>
       <img src="${newRandomContact.pictureUrl}" />
@@ -85,6 +85,16 @@ buttonAddRandom.addEventListener("click", () => {
       </button> 
     </td>
   `;
+
+  const deleteButton = randomRow.querySelector(".btn-delete");
+  deleteButton.addEventListener("click", () => {
+    randomRow.remove();
+  });
+
+  const likeButton = randomRow.querySelector(".btn-like");
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("selected");
+  });
 
   tableBody.appendChild(randomRow);
 });
