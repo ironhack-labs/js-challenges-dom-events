@@ -36,9 +36,53 @@ tableBody.appendChild(exampleRow);
 
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
+
+/*
+Let's start by displaying the first 3 contacts in the table. To do so, you will need to:
+1. Get the **first 3 contacts** from the `contacts` array.<br>You can use the `splice()` method for this.
+Remember that the `splice()` method modifies the original array, and returns the results as a new array.
+2. Iterate over the newly obtained array of 3 contacts and, for each contact, create a new table row and append it to the table body.
+<br>You can use the *Iteration 0* code as an example of how to create a new table row and what its structure should be.
+3. Append each new table row to the table body. You can use the `appendChild()` method for this.
+  <p align="center">
+    <img src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-dom-ironcontacts/02-lab-dom-iteration-1.png" alt="iteration 1" width="800">
+  </p>
+*/
+
+
+
+const appendContact = (contact) => {
+  const row = document.createElement("tr");
+
+  row.innerHTML = `
+    <td>
+      <img src="${contact.pictureUrl}" alt="${contact.name}" />
+    </td>
+    <td> ${contact.name} </td>
+    <td> ${contact.popularity.toFixed(2)} </td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+    </td>
+  `;
+
+  tableBody.appendChild(row);
+};
+
 const threeContacts = contacts.splice(0, 3);
 
-// Your code goes here ...
+threeContacts.forEach(contact => {
+  appendContact(contact);
+});
+
+
+
+
+
 
 
   
