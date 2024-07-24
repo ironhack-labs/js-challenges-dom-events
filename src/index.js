@@ -48,6 +48,7 @@ exampleRow.innerHTML = `
     </button>
   </td>
 `;
+newRow.querySelector(...)
 
 tableBody.appendChild(exampleRow);
 
@@ -87,17 +88,26 @@ console.log(contacts[2]);
   // ITERATION 2 - Delete Buttons
   
   // Your code goes here ...
-  
+  const threeContacts = contacts.splice(0, 3);
+console.log(contacts[0]);
+console.log(contacts[1]);
+console.log(contacts[2]);
   
 
   // ITERATION 3 - Like Buttons
 
   // Your code goes here ...
-
+  const threeContacts = contacts.splice(0, 3);
+  console.log(contacts[0]);
+  console.log(contacts[1]);
+  console.log(contacts[2]);
   
   
 
 
 // Bonus: ITERATION 4 - Add Random Contacts
-
+const threeContacts = contacts.splice(0, 3);
+console.log(contacts[0]);
+console.log(contacts[1]);
+console.log(contacts[2]);
 // Your code goes here ...
