@@ -2,7 +2,6 @@
 const buttonAddRandom = document.querySelector("#btn-add-random");
 const tableBody = document.querySelector("tbody#contacts");
 
-
 // ITERATION 0 | Example Row
 // Splice 1 element from the contacts array at the random index
 const randomIndex = Math.floor(Math.random() * contacts.length);
@@ -30,8 +29,6 @@ const randomContact = splicedArr[0];
 
 // tableBody.appendChild(exampleRow);
 
-
-
 // ------------------------------------------------------------------------------------------
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
@@ -58,7 +55,7 @@ newContactsList.forEach((eachContact) => {
     </td>
   `;
 
-// ------------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------------------------------
   // DELETE button + addEventListener
   const btnDeleteNode = newContactsListRow.querySelector(".btn-delete");
   // const btnDeleteNode = document.querySelector(".btn-delete")
@@ -82,25 +79,21 @@ newContactsList.forEach((eachContact) => {
   tableBody.appendChild(newContactsListRow); // adds the rows to <tbody id="contacts">
 });
 
+// ------------------------------------------------------------------------------------------
+// ITERATION 2 - Delete Buttons
+// You will need to do this in the same loop where you are creating the new table rows.
+// As soon as you create a new table row, you should also add an event listener to the
+// delete button of that row.
+// --> see iteration 1
 
 // ------------------------------------------------------------------------------------------
-  // ITERATION 2 - Delete Buttons
-  // You will need to do this in the same loop where you are creating the new table rows. 
-  // As soon as you create a new table row, you should also add an event listener to the 
-  // delete button of that row.
-  // --> see iteration 1
-  
-  
-// ------------------------------------------------------------------------------------------
-  // ITERATION 3 - Like Buttons
-  // same as delete buttons; see iteration 1
+// ITERATION 3 - Like Buttons
+// same as delete buttons; see iteration 1
 
-  
 // ------------------------------------------------------------------------------------------
 // Bonus: ITERATION 4 - Add Random Contacts
 
 buttonAddRandom.addEventListener("click", () => {
-
   // const randomIndex = Math.floor(Math.random() * contacts.length); // variable declared above globally
   const randomContact = contacts.splice(randomIndex, 1)[0]; // exctracts one random contact and removes it from the list
 
