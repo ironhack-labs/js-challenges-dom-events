@@ -60,23 +60,30 @@ threeContactsList.forEach((eachContact) => {
 
   /*
 
-  ISSUE
+  ISSUE ??
   the delete button event only workis within the new table, not the example table;
   it should be replicated inside other tables to work and linked to the specific table row
 
   */
-  // delete button + addEventListener
-  const btnDeleteNode = newTableThreeContactsRow.querySelector(".btn-delete")
+
+  // DELETE button + addEventListener
+  const btnDeleteNode = newTableThreeContactsRow.querySelector(".btn-delete");
   // const btnDeleteNode = document.querySelector(".btn-delete")
-  console.log(btnDeleteNode)
+  // console.log(btnDeleteNode)ç
 
   btnDeleteNode.addEventListener("click", () => {
     // console.log("click on delete!")
 
-    newTableThreeContactsRow.remove()
+    newTableThreeContactsRow.remove();
+  });
 
-  })
+  // LIKE button + addEventListener
+  const btnLikeNode = newTableThreeContactsRow.querySelector(".btn-like");
+  // console.log(btnLikeNode)
 
+  btnLikeNode.addEventListener("click", () => {
+    btnLikeNode.classList.toggle("selected");
+  });
 
   tableBody.appendChild(newTableThreeContactsRow); // adds the rows to <tbody id="contacts">
 });
@@ -88,16 +95,11 @@ threeContactsList.forEach((eachContact) => {
   // delete button of that row.
   
   
-  
-  
 
   // ITERATION 3 - Like Buttons
-
-  // Your code goes here ...
+  // same as delete buttons; see iteration 1
 
   
-  
-
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
