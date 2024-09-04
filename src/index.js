@@ -104,10 +104,10 @@ buttonAddRandom.addEventListener("click", () => {
   `;
     tableBody.appendChild(newRowNode2);
     
+
     // Delete Buttons
     const deleteBtn2 = newRowNode2.querySelector(".btn-delete");
     deleteBtn2.addEventListener("click", () => {
-      console.log("Botón eliminar. Actor -> ", randomContact.name);
       newRowNode2.remove();
     });
   
