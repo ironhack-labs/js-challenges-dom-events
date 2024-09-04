@@ -48,7 +48,7 @@ threeContacts.forEach(contact => {
     <td><button class="btn-like"><img src="./images/icon.png" alt="like" /></button></td>
   `;
   tableBody.appendChild(newRow);
-});
+
 
 
   
@@ -70,7 +70,7 @@ threeContacts.forEach(contact => {
   });
   
   
-
+});
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
