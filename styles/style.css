@@ -75,12 +75,17 @@ td {
   background-color: #a9a7a7;  
 }
 
+/* .btn-like:active {
+  transition: 0.2s;
+  background-color: #fc8080;  
+} */
+
 .btn-like img {
   width: 18px;
   height: 18px;
 }
 
-.btn-like.selected {
+.btn-like-selected {
   background-color: #fd9a9a;
 }
 
