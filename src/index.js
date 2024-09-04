@@ -1,4 +1,3 @@
-// HTML ELEMENTS
 const buttonAddRandom = document.querySelector("#btn-add-random");
 const tableBody = document.querySelector("tbody#contacts");
 
@@ -40,11 +39,47 @@ const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
 
+threeContacts.forEach((eachContact) => {
+
+  let contactNode = document.createElement("tr")
+  contactNode.innerHTML= 
+  `
+  <td>
+    <img src="${eachContact.pictureUrl}" />
+  </td>
+  <td> ${eachContact.name} </td>
+  <td> ${eachContact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+  `;
+
+  tableBody.appendChild(contactNode);
+
+  // Seleccionar el botón "Delete" dentro de la fila recién creada
+  const deleteButton = contactNode.querySelector(".btn-delete");
+
+  // Añadir un event listener al botón "Delete"
+  deleteButton.addEventListener("click", () => {
+    contactNode.remove();  // Eliminar la fila cuando se hace clic en "Delete"
+  });
+
+  const likeButton = contactNode.querySelector(".btn-like")
+  likeButton.addEventListener("click", ()=>{
+
+    likeButton.classList.toggle("selected")
+  })
+});
+
+
 
   
-  // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
+   
   
   
 
