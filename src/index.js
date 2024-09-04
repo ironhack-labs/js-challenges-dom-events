@@ -42,45 +42,8 @@ const threeContacts = contacts.splice(0, 3);
 const allContactsNode = document.getElementById("contacts");
 
 threeContacts.forEach((eachContact) => {
-  const newRow = document.createElement("tr");
-
-  newRow.innerHTML = ` 
-    <td>
-    <img src="${eachContact.pictureUrl}" />
-  </td>
-  <td> ${eachContact.name} </td>
-  <td> ${eachContact.popularity.toFixed(2)} </td>
-  <td>
-    <button class="btn-delete">Delete</button>
-  </td>
-  <td>
-    <button class="btn-like">
-      <img src="./images/icon.png" alt="like" />
-    </button>
-  </td>
-  `;
-
-  allContactsNode.appendChild(newRow);
-
-  // ITERATION 2 - Delete Buttons
-  const deleteButtonNode = newRow.querySelector(".btn-delete");
-  //console.log(deleteButtonNode);
-  deleteButtonNode.addEventListener("click", () => {
-    newRow.remove(); 
+    createRow(eachContact);
   });
-
-    // ITERATION 3 - Like Buttons
-
-  // Your code goes here ...
-  const likeButtonNode = newRow.querySelector(".btn-like");
-  //console.log(likeButtonNode);
-  likeButtonNode.addEventListener("click", () => {
-    likeButtonNode.classList.toggle("selected");
-    console.log("like");
-  });
-
-});
-
   // Bonus: ITERATION 4 - Add Random Contacts
 
   // Your code goes here ...
@@ -91,14 +54,19 @@ threeContacts.forEach((eachContact) => {
     const randomContact = contacts.splice(randomIndex, 1)[0]; // Remueve y obtiene un contacto aleatorio
   
     // Crear una nueva fila para el contacto aleatorio
+    createRow(randomContact);
+  });
+
+
+  function createRow(contact) {
     const newRow = document.createElement("tr");
   
     newRow.innerHTML = `
       <td>
-        <img src="${randomContact.pictureUrl}" />
+        <img src="${contact.pictureUrl}" />
       </td>
-      <td> ${randomContact.name} </td>
-      <td> ${randomContact.popularity.toFixed(2)} </td>
+      <td> ${contact.name} </td>
+      <td> ${contact.popularity.toFixed(2)} </td>
       <td>
         <button class="btn-delete">Delete</button>
       </td>
@@ -123,9 +91,6 @@ threeContacts.forEach((eachContact) => {
     likeButtonNode.addEventListener("click", () => {
       likeButtonNode.classList.toggle("selected"); // Alternar la clase "selected"
     });
-  });
-
-
-  
+  }
 
 
