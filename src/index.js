@@ -58,15 +58,36 @@ threeContactsList.forEach((eachContact) => {
     </td>
   `;
 
-  tableBody.appendChild(newTableThreeContactsRow);
+  /*
+
+  ISSUE
+  the delete button event only workis within the new table, not the example table;
+  it should be replicated inside other tables to work and linked to the specific table row
+
+  */
+  // delete button + addEventListener
+  const btnDeleteNode = newTableThreeContactsRow.querySelector(".btn-delete")
+  // const btnDeleteNode = document.querySelector(".btn-delete")
+  console.log(btnDeleteNode)
+
+  btnDeleteNode.addEventListener("click", () => {
+    // console.log("click on delete!")
+
+    newTableThreeContactsRow.remove()
+
+  })
+
+
+  tableBody.appendChild(newTableThreeContactsRow); // adds the rows to <tbody id="contacts">
 });
-
-
 
   
   // ITERATION 2 - Delete Buttons
+  // You will need to do this in the same loop where you are creating the new table rows. 
+  // As soon as you create a new table row, you should also add an event listener to the 
+  // delete button of that row.
   
-  // Your code goes here ...
+  
   
   
 
