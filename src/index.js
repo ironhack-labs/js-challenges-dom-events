@@ -31,12 +31,38 @@ exampleRow.innerHTML = `
 tableBody.appendChild(exampleRow);
 
 
+//const baseElement = document.querySelector("p");
+//document.getElementById("output").textContent =
+  //baseElement.querySelector("div span").textContent;
+
 
 
 
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
+
+
 const threeContacts = contacts.splice(0, 3);
+
+threeContacts.forEach(contact => {
+  const newRow = document.createElement('tr') ; 
+  newRow.innerHTML = `
+  <td>
+    <img src="${contact.pictureUrl}" />
+  </td>
+  <td> ${contact.name} </td>
+  <td> ${contact.popularity.toFixed(2)} </td>
+  
+  <td> <button class="btn-delete">Delete</button></td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>`;
+  
+
+  tableBody.appendChild(newRow);  
+ 
 
 // Your code goes here ...
 
@@ -45,13 +71,18 @@ const threeContacts = contacts.splice(0, 3);
   // ITERATION 2 - Delete Buttons
   
   // Your code goes here ...
-  
-  
+  const buttonDelete = newRow.querySelector('.btn-delete');
+  buttonDelete.addEventListener('click', () => {
+    newRow.remove();
+  });
 
   // ITERATION 3 - Like Buttons
 
   // Your code goes here ...
-
+  const likeButton = newRow.querySelector('.btn-like');
+  likeButton.addEventListener('click', () => {
+    newRow.classList.toggle('selected');
+  });
   
   
 
@@ -59,3 +90,33 @@ const threeContacts = contacts.splice(0, 3);
 // Bonus: ITERATION 4 - Add Random Contacts
 
 // Your code goes here ...
+
+
+
+});
+
+
+
+
+// BONUS: ITERATION 4 | Add Random Contacts
+const addRandomContactButton = document.querySelector('#add-random-contact');
+addRandomContactButton.addEventListener('click', () =>  document.querySelector('tbody').appendChild(newRow));
+
+
+
+
+function addRandomContact() {
+  // Get a random contact from the contacts array
+  const randomIndex = Math.floor(Math.random() * contacts.length);
+  const randomContact = contacts[randomIndex];
+
+
+  const contacts = contacts.slice(0, 1);
+  const newRow = document.createElement('tr');
+  newRow.innerHTML = `
+    <td>${contacts.name}</td>
+    <td><button class="btn-delete">Delete</button></td>
+    <td><button class="btn-like">Like</button></td>
+  `;
+  document.querySelector('tbody').appendChild(newRow);
+}
