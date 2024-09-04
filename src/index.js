@@ -81,14 +81,13 @@ threeContacts.forEach((eachContact) => {
 
 
 // Bonus: ITERATION 4 - Add Random Contacts
-
 buttonAddRandom.addEventListener("click", () => {
   const randomIndex = Math.floor(Math.random() * contacts.length);
   const splicedArr = contacts.splice(randomIndex, 1);
   const randomContact = splicedArr[0];
 
-  newRowNode = document.createElement("tr");
-  newRowNode.innerHTML = `
+  let newRowNode2 = document.createElement("tr");
+  newRowNode2.innerHTML = `
     <td>
       <img src="${randomContact.pictureUrl}" />
     </td>
@@ -103,18 +102,17 @@ buttonAddRandom.addEventListener("click", () => {
       </button>
     </td>
   `;
-    tableBody.appendChild(newRowNode);
+    tableBody.appendChild(newRowNode2);
     
-    // CREO QUE TENGO QUE HACER UN FOREACH PARA LOS BOTONES O ALGO
     // Delete Buttons
-    const deleteBtn = newRowNode.querySelector(".btn-delete");
-    deleteBtn.addEventListener("click", () => {
+    const deleteBtn2 = newRowNode2.querySelector(".btn-delete");
+    deleteBtn2.addEventListener("click", () => {
       console.log("Botón eliminar. Actor -> ", randomContact.name);
-      newRowNode.remove();
+      newRowNode2.remove();
     });
   
     // Like Buttons
-    const likeBtn = newRowNode.querySelector(".btn-like");
+    const likeBtn = newRowNode2.querySelector(".btn-like");
     likeBtn.addEventListener("click", () => {
       likeBtn.classList.toggle("selected");
     });
