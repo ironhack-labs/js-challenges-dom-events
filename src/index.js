@@ -39,23 +39,84 @@ tableBody.appendChild(exampleRow);
 const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
+threeContacts.forEach((contact) => {
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
+  <td>
+    <img src="${contact.pictureUrl}" />
+  </td>
+  <td> ${contact.name} </td>
+  <td> ${contact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`;
 
+  tableBody.appendChild(newRow);
 
-  
   // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
+
+  const btnDeleteNewRow = newRow.querySelector(".btn-delete")
+
+  btnDeleteNewRow.addEventListener("click", () => {
+    newRow.remove()
+  })
 
   // ITERATION 3 - Like Buttons
+  const btnLike = newRow.querySelector(".btn-like")
 
-  // Your code goes here ...
+  btnLike.addEventListener("click", () => {
+    btnLike.classList.toggle("selected")
 
-  
-  
+  })
+})
+
 
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
-// Your code goes here ...
+const newRandomContact = document.querySelector("#btn-add-random")
+console.log(newRandomContact)
+
+newRandomContact.addEventListener("click", () => {
+  const randomIndex = Math.floor(Math.random() * contacts.length)
+  const randomContact = contacts[randomIndex]
+
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
+  <td>
+    <img src="${randomContact.pictureUrl}" />
+  </td>
+  <td> ${randomContact.name} </td>
+  <td> ${randomContact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`;
+
+  tableBody.appendChild(newRow);  
+
+  const btnDeleteNewRow = newRow.querySelector(".btn-delete")
+
+  btnDeleteNewRow.addEventListener("click", () => {
+    newRow.remove()
+  })
+
+  // ITERATION 3 - Like Buttons
+  const btnLike = newRow.querySelector(".btn-like")
+
+  btnLike.addEventListener("click", () => {
+    btnLike.classList.toggle("selected")
+
+  })
+})
