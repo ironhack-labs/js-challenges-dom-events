@@ -94,7 +94,8 @@ newContactsList.forEach((eachContact) => {
 // Bonus: ITERATION 4 - Add Random Contacts
 
 buttonAddRandom.addEventListener("click", () => {
-  // const randomIndex = Math.floor(Math.random() * contacts.length); // variable declared above globally
+  // randomIndex uncommented to resubmit exercise and review feedback * * *
+  const randomIndex = Math.floor(Math.random() * contacts.length); // variable declared above globally
   const randomContact = contacts.splice(randomIndex, 1)[0]; // exctracts one random contact and removes it from the list
 
   // console.log(contacts.length)
