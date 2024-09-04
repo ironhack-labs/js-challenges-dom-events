@@ -40,6 +40,30 @@ const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
 
+threeContacts.forEach((famosos) => {
+  console.log(famosos)
+  const nuevosContactos = document.createElement("tr");
+  nuevosContactos.innerHTML = `
+    <td>
+      <img src="${famosos.pictureUrl}" />
+    </td>
+    <td> ${famosos.name} </td>
+    <td> ${famosos.popularity.toFixed(2)} </td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+    </td>
+  `;
+  
+  tableBody.appendChild(nuevosContactos);
+  
+});
+
+
 
   
   // ITERATION 2 - Delete Buttons
