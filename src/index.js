@@ -78,15 +78,54 @@ threeContacts.forEach((eachContact) => {
     likeButtonNode.classList.toggle("selected");
     console.log("like");
   });
+
 });
+
+  // Bonus: ITERATION 4 - Add Random Contacts
+
+  // Your code goes here ...
+
+  buttonAddRandom.addEventListener("click", () => {
+    // Obtener un contacto aleatorio del array restante de 'contacts'
+    const randomIndex = Math.floor(Math.random() * contacts.length);
+    const randomContact = contacts.splice(randomIndex, 1)[0]; // Remueve y obtiene un contacto aleatorio
+  
+    // Crear una nueva fila para el contacto aleatorio
+    const newRow = document.createElement("tr");
+  
+    newRow.innerHTML = `
+      <td>
+        <img src="${randomContact.pictureUrl}" />
+      </td>
+      <td> ${randomContact.name} </td>
+      <td> ${randomContact.popularity.toFixed(2)} </td>
+      <td>
+        <button class="btn-delete">Delete</button>
+      </td>
+      <td>
+        <button class="btn-like">
+          <img src="./images/icon.png" alt="like" />
+        </button>
+      </td>
+    `;
+  
+    // Agregar la nueva fila a la tabla
+    allContactsNode.appendChild(newRow);
+  
+    // Añadir event listener al botón "Delete" de la nueva fila
+    const deleteButtonNode = newRow.querySelector(".btn-delete");
+    deleteButtonNode.addEventListener("click", () => {
+      newRow.remove(); // Eliminar la fila
+    });
+  
+    // Añadir event listener al botón "Like" de la nueva fila
+    const likeButtonNode = newRow.querySelector(".btn-like");
+    likeButtonNode.addEventListener("click", () => {
+      likeButtonNode.classList.toggle("selected"); // Alternar la clase "selected"
+    });
+  });
+
+
   
 
 
-
-  
-  
-
-
-// Bonus: ITERATION 4 - Add Random Contacts
-
-// Your code goes here ...
