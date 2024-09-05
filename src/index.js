@@ -27,11 +27,9 @@ exampleRow.innerHTML = `
     </button>
   </td>
 `;
-
+//linia 16 és la 1a cel·la (on hi ha la foto), la línia 19 és la 2a (nom actor/actriu)...
+//toFixed(2) era perq imprimís només dos decimals
 tableBody.appendChild(exampleRow);
-
-
-
 
 
 // ITERATION 1 - Display 3 contacts
@@ -39,22 +37,43 @@ tableBody.appendChild(exampleRow);
 const threeContacts = contacts.splice(0, 3); // dins aquesta variable hi ha els 3
 
 // Your code goes here ...
+threeContacts.forEach ((eachContact)=>{
+  const newRow = document.createElement("tr")
+  newRow.innerHTML = `
+  <td>
+    <img src="${eachContact.pictureUrl}" />
+  </td>
+  <td> ${eachContact.name} </td>
+  <td> ${eachContact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`
+  tableBody.appendChild(newRow)
 
-
-  
   // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
-
-  // ITERATION 3 - Like Buttons
-
   // Your code goes here ...
 
-  
-  
+  const deleteButton = newRow.querySelector(".btn-delete")//si poso document. farà el 1r que trobi, posem newRow per assegurar que soc a la fila que estic creant
+    deleteButton.addEventListener("click", ()=>{
+      newRow.remove()
+    })
 
+    // ITERATION 3 - Like Buttons
+    // Your code goes here ...
+
+  const likeButton = newRow.querySelector(".btn-like")
+  likeButton.addEventListener("click", ()=>{
+    console.log("clicant")
+    newRow.classList.toggle("selected")
+  })
+
+})
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
