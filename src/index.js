@@ -37,25 +37,82 @@ tableBody.appendChild(exampleRow);
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
 const threeContacts = contacts.splice(0, 3);
-
 // Your code goes here ...
+threeContacts.forEach(contact => {
+  //let newContact = threeContacts[i]
+  let newRow = document.createElement("tr");
+  newRow.innerHTML = `
+  <td>
+    <img src="${contact.pictureUrl}" />
+  </td>
+  <td> ${contact.name} </td>
+  <td> ${contact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`;
+tableBody.appendChild(newRow);
+
+//localizamos button delete de esta fila y button like
+let buttonDeleteNode = newRow.querySelector(".btn-delete");
+let buttonLikeNode = newRow.querySelector(".btn-like");
 
 
-  
-  // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
+buttonDeleteNode.addEventListener ("click", () => {
+  newRow.remove();
+});
 
-  // ITERATION 3 - Like Buttons
-
-  // Your code goes here ...
-
-  
-  
-
+buttonLikeNode.addEventListener( "click", () => {
+  buttonLikeNode.classList.toggle("selected");
+});
+});
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
-// Your code goes here ...
+buttonAddRandom.addEventListener("click", ()=>{
+
+  let randomIndexToAdd = Math.floor(Math.random() * contacts.length);
+  let splicedArr2 = contacts.splice(randomIndexToAdd,1);
+  // Get the element from the spliced array
+  let newContactToAdd = splicedArr2[0]
+  let newRow = document.createElement("tr");
+  newRow.innerHTML = `
+  <td>
+    <img src="${newContactToAdd.pictureUrl}" />
+  </td>
+  <td> ${newContactToAdd.name} </td>
+  <td> ${newContactToAdd.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`;
+tableBody.appendChild(newRow);
+
+//localizamos button delete de esta fila y button like
+let buttonDeleteNode = newRow.querySelector(".btn-delete");
+let buttonLikeNode = newRow.querySelector(".btn-like");
+
+
+buttonDeleteNode.addEventListener ("click", () => {
+  newRow.remove();
+});
+buttonLikeNode.addEventListener( "click", () => {
+  buttonLikeNode.classList.toggle("selected");
+});
+});
+
+
+
+
+
+
