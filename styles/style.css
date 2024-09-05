@@ -48,6 +48,22 @@ td {
   font-weight: 500;
   width: 200px;
 }
+#btn-sort-names {
+  border: none;
+  text-decoration: none;
+  background-color: #d4d3d3;
+  color: #151515;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+  padding: 3px 16px;
+  border-radius: 4px;
+  margin: 20px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  width: 200px;
+}
 
 /* Add a pseudo selector to animate button #btn-add-random when clicked, with confeti */
 #btn-add-random:active {
