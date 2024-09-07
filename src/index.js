@@ -36,7 +36,7 @@ deleteButtonNode1.addEventListener("click",() => {
 })
 let likeButtonNode1 = exampleRow.querySelector(".btn-like")
   likeButtonNode1.addEventListener("click",() =>{
-    likeButtonNode1.classList.toggle("btn-like.selected")
+    likeButtonNode1.classList.toggle("selected")
 
 })
 
@@ -74,7 +74,7 @@ threeContacts.forEach((famosos) => {
   })
   let likeButtonNode = nuevoContacto.querySelector(".btn-like")
   likeButtonNode.addEventListener("click",() =>{
-    likeButtonNode.classList.toggle("btn-like.selected")
+    likeButtonNode.classList.toggle("selected")
   })
 
 });
@@ -110,7 +110,7 @@ threeContacts.forEach((famosos) => {
 addRandomPeopleNode = document.querySelector("#btn-add-random")
 
 addRandomPeopleNode.addEventListener("clicker",() =>{
-  exampleRow.innerHTML = `
+  appexampleRow.innerHTML = `
   <td>
     <img src="${randomContact.pictureUrl}" />
   </td>
