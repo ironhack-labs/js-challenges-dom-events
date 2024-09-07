@@ -109,11 +109,11 @@ threeContacts.forEach((famosos) => {
 // Your code goes here ...
 addRandomPeopleNode = document.querySelector("#btn-add-random")
 
-addRandomPeopleNode.addEventListener("clicker",() =>{
-  appexampleRow.innerHTML = `
+addRandomPeopleNode.addEventListener("click",() =>{
+  exampleRow.innerHTML = `
   <td>
     <img src="${randomContact.pictureUrl}" />
-  </td>
+  </td>g
   <td> ${randomContact.name} </td>
   <td> ${randomContact.popularity.toFixed(2)} </td>
   <td>
