@@ -1,61 +1,71 @@
-// HTML ELEMENTS
-const buttonAddRandom = document.querySelector("#btn-add-random");
-const tableBody = document.querySelector("tbody#contacts");
-
-
-// ITERATION 0 | Example Row
-// Splice 1 element from the contacts array at the random index
-const randomIndex = Math.floor(Math.random() * contacts.length);
-const splicedArr = contacts.splice(randomIndex, 1);
-
-// Get the element from the spliced array
-const randomContact = splicedArr[0];
-
-const exampleRow = document.createElement("tr");
-exampleRow.innerHTML = `
-  <td>
-    <img src="${randomContact.pictureUrl}" />
-  </td>
-  <td> ${randomContact.name} </td>
-  <td> ${randomContact.popularity.toFixed(2)} </td>
-  <td>
-    <button class="btn-delete">Delete</button>
-  </td>
-  <td>
-    <button class="btn-like">
-      <img src="./images/icon.png" alt="like" />
-    </button>
-  </td>
-`;
-
-tableBody.appendChild(exampleRow);
-
-
-
-
 
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
 const threeContacts = contacts.splice(0, 3);
 
-// Your code goes here ...
+ // DOM Elements
+const tableBody = document.querySelector('#contacts');
+const addRandomContactBtn = document.querySelector('#btn-add-random');
+
+// Function to create and append a new contact row
+function addContactRow(contact) {
+  const newRow = document.createElement('tr');
+
+  // Define the structure of the row with contact details
+  newRow.innerHTML = `
+    <td><img src="${contact.pictureUrl}" alt="${contact.name}" width="50"></td>
+    <td>${contact.name}</td>
+    <td>${contact.popularity.toFixed(2)}</td>
+    <td><button class="btn-like">❤️</button></td>
+    <td><button class="btn-delete">Delete</button></td>
+  `;
+
+  // Append the new row to the table body
+  tableBody.appendChild(newRow);
+
+  // DELETE button functionality
+  const deleteBtn = newRow.querySelector('.btn-delete');
+  deleteBtn.addEventListener('click', () => {
+    newRow.remove(); // Remove the row from the table
+  });
+
+  // LIKE button functionality
+  const likeBtn = newRow.querySelector('.btn-like');
+  likeBtn.addEventListener('click', () => {
+    newRow.classList.toggle('selected'); // Toggle 'selected' class on the row for like functionality
+  });
+}
+
+// Function to display the first 3 contacts
+function displayFirstThreeContacts() {
+  // Use slice to get the first 3 contacts and map to add rows
+  contacts.slice(0, 3).map(contact => addContactRow(contact));
+}
+
+// Add Random Contact functionality
+function addRandomContact() {
+  const remainingContacts = contacts.slice(3); // Get remaining contacts after first 3
+  const randomIndex = Math.floor(Math.random() * remainingContacts.length);
+  const randomContact = remainingContacts[randomIndex];
+  
+  // Check if the contact is already in the table
+  const contactExists = Array.from(tableBody.rows).some(row => 
+    row.cells[1].textContent === randomContact.name
+  );
+
+  // Add the contact only if it's not already present in the table
+  if (!contactExists) {
+    addContactRow(randomContact);
+  }
+}
+
+// Display the first 3 contacts initially
+displayFirstThreeContacts();
+
+// Event listener for adding random contact
+addRandomContactBtn.addEventListener('click', addRandomContact);
+
+
 
 
   
-  // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
-
-  // ITERATION 3 - Like Buttons
-
-  // Your code goes here ...
-
-  
-  
-
-
-// Bonus: ITERATION 4 - Add Random Contacts
-
-// Your code goes here ...
