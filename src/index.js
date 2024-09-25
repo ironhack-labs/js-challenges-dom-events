@@ -66,9 +66,8 @@ function addContactToWebsite(contactElement) {
 }
 
 // Iteration 5
-console.log(contacts[Math.floor(Math.random()*contacts.length)])
 addRandomContactButton = document.querySelector("#btn-add-random");
 addRandomContactButton.onclick = () => {
-  toBeAddedRandomContact = contacts[Math.floor(Math.random()*contacts.length)];
+  toBeAddedRandomContact = contacts.splice(Math.floor(Math.random()*contacts.length), 1)[0];
   addContactToWebsite(toBeAddedRandomContact);
 }
