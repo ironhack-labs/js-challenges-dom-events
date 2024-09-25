@@ -39,23 +39,36 @@ tableBody.appendChild(exampleRow);
 const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
+threeContacts.forEach((element) => addContactToWebsite(element))
 
+function addContactToWebsite(contactElement) {
+  let toBeAddedContact = document.createElement("tr");
+  toBeAddedContact.innerHTML = `
+  <td>
+    <img src="${contactElement.pictureUrl}" />
+  </td>
+  <td> ${contactElement.name} </td>
+  <td> ${contactElement.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+  `
+  let deleteButton = toBeAddedContact.querySelector(".btn-delete")
+  deleteButton.addEventListener("click", () => deleteButton.closest("tr").remove());
+  let likeButton = toBeAddedContact.querySelector(".btn-like");
+  likeButton.addEventListener("click", () => (likeButton.className === "btn-like selected") ? likeButton.className = "btn-like" : likeButton.className = "btn-like selected");
+  tableBody.appendChild(toBeAddedContact);
+}
 
-  
-  // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
-
-  // ITERATION 3 - Like Buttons
-
-  // Your code goes here ...
-
-  
-  
-
-
-// Bonus: ITERATION 4 - Add Random Contacts
-
-// Your code goes here ...
+// Iteration 5
+console.log(contacts[Math.floor(Math.random()*contacts.length)])
+addRandomContactButton = document.querySelector("#btn-add-random");
+addRandomContactButton.onclick = () => {
+  toBeAddedRandomContact = contacts[Math.floor(Math.random()*contacts.length)];
+  addContactToWebsite(toBeAddedRandomContact);
+}
