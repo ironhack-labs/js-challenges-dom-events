@@ -56,16 +56,56 @@ threeContacts.forEach((contact) => {
 // ITERATION 2 - Delete Buttons
 
 // Your code goes here ...
-const buttonDelete = row.querySelector(".btn-delete");
-buttonDelete.addEventListener("click", function () {
-  row.remove();
+threeContacts.forEach((contact) => {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td>
+      <img src="${contact.pictureUrl}" />
+    </td>
+    <td>${contact.name}</td>
+    <td>${contact.popularity.toFixed(2)}</td>
+    <td><button class="btn-delete">Delete</button></td>
+    <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+  `;
+
+  tableBody.appendChild(row);
+
+  const buttonDelete = row.querySelector(".btn-delete");
+  buttonDelete.addEventListener("click", function () {
+    row.remove();
+  });
 });
 // not working yet !!!!
 
 // ITERATION 3 - Like Buttons
 
 // Your code goes here ...
+contactsToDisplay.forEach((contact) => {
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
+    <td><img src="${contact.pictureUrl}" alt="${contact.name}"></td>
+    <td>${contact.name}</td>
+    <td>${contact.popularity.toFixed(2)}</td>
+    <td><button class="btn-delete">Delete</button></td>
+    <td><button class="btn-like">Like</button></td>
+  `;
 
+  const deleteBtn = newRow.querySelector(".btn-delete");
+  deleteBtn.addEventListener("click", () => {
+    newRow.remove();
+  });
+
+  const likeBtn = newRow.querySelector(".btn-like");
+  likeBtn.addEventListener("click", () => {
+    newRow.classList.toggle("selected");
+  });
+
+  tableBody.appendChild(newRow);
+});
 // Bonus: ITERATION 4 - Add Random Contacts
 
 // Your code goes here ...
