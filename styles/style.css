@@ -81,7 +81,7 @@ td {
 }
 
 .btn-like.selected {
-  background-color: #fd9a9a;
+  background-color: red;
 }
 
 .btn-delete {
