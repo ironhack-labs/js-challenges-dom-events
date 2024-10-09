@@ -2,7 +2,6 @@
 const buttonAddRandom = document.querySelector("#btn-add-random");
 const tableBody = document.querySelector("tbody#contacts");
 
-
 // ITERATION 0 | Example Row
 // Splice 1 element from the contacts array at the random index
 const randomIndex = Math.floor(Math.random() * contacts.length);
@@ -38,24 +37,71 @@ tableBody.appendChild(exampleRow);
 // Get the first 3 contacts from the 'contacts' array.
 const threeContacts = contacts.splice(0, 3);
 
-// Your code goes here ...
+threeContacts.forEach((contact) => {
+  const row = document.createElement("tr");
+  row.innerHTML = `<td>
+        <img src="${contact.pictureUrl}" />
+      </td>
+      <td> ${contact.name} </td>
+      <td> ${contact.popularity.toFixed(2)} </td>
+      <td>
+        <button class="btn-delete">Delete</button>
+      </td>
+      <td>
+        <button class="btn-like">
+          <img src="./images/icon.png" alt="like" />
+        </button>
+      </td>`;
 
+  tableBody.appendChild(row);
 
-  
   // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
+  const deleteButton = row.querySelector(".btn-delete");
+
+  deleteButton.addEventListener("click", () => row.remove());
 
   // ITERATION 3 - Like Buttons
+  const likeButton = row.querySelector(".btn-like");
+  likeButton.addEventListener("click", () =>
+    likeButton.classList.toggle("selected")
+  );
+});
 
-  // Your code goes here ...
 
-  
-  
+
 
 
 // Bonus: ITERATION 4 - Add Random Contacts
+buttonAddRandom.addEventListener("click", () => {
+  const newRandomIndex = Math.floor(Math.random() * contacts.length);
+  const newRandomContact = contacts[newRandomIndex];
 
-// Your code goes here ...
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
+    <td>
+      <img src="${newRandomContact.pictureUrl}" />
+    </td>
+    <td> ${newRandomContact.name} </td>
+    <td> ${newRandomContact.popularity.toFixed(2)} </td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+    </td>`;
+
+  tableBody.appendChild(newRow);
+
+  // Delete Button
+  const deleteButton = newRow.querySelector(".btn-delete");
+  deleteButton.addEventListener("click", () => newRow.remove());
+
+  // Like Button
+  const likeButton = newRow.querySelector(".btn-like");
+  likeButton.addEventListener("click", () => 
+    likeButton.classList.toggle("selected")
+  );
+});
+
