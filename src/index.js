@@ -79,30 +79,11 @@ tableBody.appendChild(exampleRow);
 
 })
 
-// Your code goes here ...
-
-
 
   
-  // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
 
 
 
-/*const getallrows = exampleRow.querySelectorAll(".btn-delete");
-
-getallrows.forEach(Function(rows){
-  rows.addEventListener("click", () => {rows.remove()})
-})*/
-
-  // ITERATION 3 - Like Buttons
-
-  // Your code goes here ...
-
-
-// Bonus: ITERATION 4 - Add Random Contacts
 
 // Your code goes here ...
 buttonAddRandom.addEventListener("click", () => {
