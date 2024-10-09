@@ -9,7 +9,14 @@ const randomIndex = Math.floor(Math.random() * contacts.length);
 const splicedArr = contacts.splice(randomIndex, 1);
 
 // Get the element from the spliced array
-const randomContact = splicedArr[0];
+
+const newRow = () => {
+
+// ITERATION 0 | Example Row
+// Splice 1 element from the contacts array at the random index
+const randomIndex = Math.floor(Math.random() * contacts.length);
+const splicedArr = contacts.splice(randomIndex, 1);
+  const randomContact = splicedArr[0];
 
 const exampleRow = document.createElement("tr");
 exampleRow.innerHTML = `
@@ -28,8 +35,11 @@ exampleRow.innerHTML = `
   </td>
 `;
 
-tableBody.appendChild(exampleRow);
+return tableBody.appendChild(exampleRow);
+} 
 
+
+newRow()
 
 
 
@@ -40,8 +50,40 @@ const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
 
+threeContacts.forEach(contact => {
+  const tableRow = document.createElement("tr");
+  tableRow.innerHTML = `
+    <td>
+      <img src="${contact.pictureUrl}" />
+    </td>
+    <td> ${contact.name} </td>
+    <td> ${contact.popularity.toFixed(2)} </td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+    </td>
+  `;
 
-  
+const deleteBotton = tableRow.querySelector('.btn-delete')
+deleteBotton.addEventListener('click', () => {
+  tableRow.remove()
+})
+
+const likeButton = tableRow.querySelector('.btn-like')
+likeButton.addEventListener('click', () => {
+  likeButton.classList.toggle('selected')
+})
+
+
+tableBody.appendChild(tableRow);
+});
+
+
+
   // ITERATION 2 - Delete Buttons
   
   // Your code goes here ...
@@ -57,5 +99,9 @@ const threeContacts = contacts.splice(0, 3);
 
 
 // Bonus: ITERATION 4 - Add Random Contacts
-
-// Your code goes here ...
+ // Your code goes here ...
+ const addRandomContactButton = document.querySelector('#btn-add-random')
+addRandomContactButton.addEventListener('click',()=>{
+  const newRowRandom = newRow()
+  tableBody.appendChild(newRowRandom);
+})
