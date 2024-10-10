@@ -102,3 +102,7 @@ td {
   transition: 0.2s;
   background-color: #a9a7a7;  
 }
+
+.like-icon.selected {
+  filter: hue-rotate(180deg); /* Cambia el color del icono */
+}
