@@ -65,6 +65,34 @@ const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
 
+// threeContacts.forEach(contact => {
+//   const newRow = document.createElement("tr");
+//   newRow.innerHTML = `
+//   <td>
+//   <img src="${contact.pictureUrl}" />
+//   </td>
+//   <td> ${contact.name} </td>
+//   <td> ${contact.popularity.toFixed(2)} </td>
+//   <td>
+//   <button class="btn-delete">Delete</button>
+//   </td>
+//   <td>
+//   <button class="btn-like">
+//   <img src="./images/icon.png" alt="like" />
+//   </button>
+//   </td>
+//   `;
+//   let deleteButton = newRow.querySelector('.btn-delete');
+//   /* deleteButton.addEventListener('click', () => tableBody.removeChild(newRow)) */
+//   deleteButton.addEventListener('click', () => newRow.remove())
+//   tableBody.appendChild(newRow);
+// });
+
+
+
+// ITERATION 3 - Like Buttons
+
+// Your code goes here ...
 threeContacts.forEach(contact => {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
@@ -85,14 +113,12 @@ threeContacts.forEach(contact => {
   let deleteButton = newRow.querySelector('.btn-delete');
   /* deleteButton.addEventListener('click', () => tableBody.removeChild(newRow)) */
   deleteButton.addEventListener('click', () => newRow.remove())
+  
+  let likeButton = newRow.querySelector('.btn-like');
+  likeButton.addEventListener('click', () => likeButton.classList.toggle('selected'))
+
   tableBody.appendChild(newRow);
 });
-  
-  
-
-// ITERATION 3 - Like Buttons
-
-// Your code goes here ...
 
   
   
