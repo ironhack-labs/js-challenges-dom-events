@@ -64,12 +64,12 @@ let deleteByn = Row.querySelector('.btn-delete')
 deleteByn.addEventListener("click",()=>{
   Row.remove();
 
-  let likebtn = Row.querySelector(".btn-like")
-  likebtn.addEventListener("click",()=>{
-    likebtn.classList.toggle(".selected")
-  })
+ 
 })
-
+let likebtn = Row.querySelector(".btn-like")
+likebtn.addEventListener("click",()=>{
+  likebtn.classList.toggle("selected")
+})
 
 });
   
