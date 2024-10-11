@@ -58,6 +58,10 @@ threeContacts.forEach( (contact) => {
     </td>
   `;
   tableBody.appendChild(row)
+  row.querySelector('.btn-delete')
+    .addEventListener('click', () => {
+      tableBody.removeChild(row);
+  });
 });
   
   // ITERATION 2 - Delete Buttons
