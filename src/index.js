@@ -157,3 +157,58 @@ buttonAddRandom.addEventListener('click', () => {
 // Bonus: ITERATION 5 - Sort Contacts by Name
 
 // Your code goes here ...
+
+const body = document.querySelector('body');
+const sortButton = document.createElement('button');
+sortButton.innerHTML = 'Sort by Name';
+body.appendChild(sortButton);
+
+
+sortButton.addEventListener('click', () => {
+  let contactList = tableBody.getElementsByTagName('tr');
+  const arrayContactList = [...contactList];
+  arrayContactList.sort((a, b) => {
+    if (a.name > b.name) {
+      return 1;
+    } else {
+      return -1
+    }
+  });
+  const showContacts = (contactsArr) => {    
+
+    tableBody.innerHTML = '';
+
+    for (let i = 0; i < contactsArr.length; i++) {
+      const newRow = document.createElement("tr");
+      newRow.innerHTML = `
+      <td>
+      <img src="${contactsArr[i].pictureUrl}" />
+      </td>
+      <td> ${contactsArr[i].name} </td>
+      <td> ${contactsArr[i].popularity.toFixed(2)} </td>
+      <td>
+      <button class="btn-delete">Delete</button>
+      </td>
+      <td>
+      <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+      </button>
+      </td>
+      `;
+      let deleteButton = newRow.querySelector('.btn-delete');
+      /* deleteButton.addEventListener('click', () => tableBody.removeChild(newRow)) */
+      deleteButton.addEventListener('click', () => newRow.remove())
+      
+      let likeButton = newRow.querySelector('.btn-like');
+      likeButton.addEventListener('click', () => likeButton.classList.toggle('selected'))
+      
+      tableBody.appendChild(newRow);
+    }
+  }
+
+  showContacts(arrayContactList)
+
+
+})
+
+
