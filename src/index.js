@@ -88,7 +88,7 @@ threeContacts.forEach( (contact) => {
 // Your code goes here ...
 
 buttonAddRandom.addEventListener('click', () => {
-  
+  // Splice 1 element from the contacts array at the random index
   const randomIndex = Math.floor(Math.random() * contacts.length);
   const splicedArr = contacts.splice(randomIndex, 1);
   // Get the element from the spliced array
