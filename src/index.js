@@ -31,9 +31,6 @@ exampleRow.innerHTML = `
 tableBody.appendChild(exampleRow);
 
 
-
-
-
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
 const threeContacts = contacts.splice(0, 3);
@@ -57,26 +54,34 @@ threeContacts.forEach( (contact) => {
       </button>
     </td>
   `;
-  tableBody.appendChild(row)
-  row.querySelector('.btn-delete')
-    .addEventListener('click', () => {
-      tableBody.removeChild(row);
-  });
+  tableBody.appendChild(row);
+  deleteRow(row);
+  likeButton(row);
+   
 });
   
   // ITERATION 2 - Delete Buttons
   
   // Your code goes here ...
   
-  
+  function deleteRow(row){
+    row.querySelector('.btn-delete')
+     .addEventListener('click', () => {
+       tableBody.removeChild(row);
+    });
+  }
 
   // ITERATION 3 - Like Buttons
 
   // Your code goes here ...
 
-  
-  
-
+  function likeButton(row){
+   const likeButton = row.querySelector('.btn-like');
+   likeButton.addEventListener('click', (e) => {
+      console.log(likeButton); 
+       likeButton.classList.toggle('selected');
+    });
+  }
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
