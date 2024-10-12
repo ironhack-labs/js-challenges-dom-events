@@ -4,7 +4,7 @@ const tableBody = document.querySelector("tbody#contacts");
 
 // ITERATION 0 | Example Row
 // Splice 1 element from the contacts array at the random index
-const randomIndex = Math.floor(Math.random() * contacts.length);
+/* const randomIndex = Math.floor(Math.random() * contacts.length);
 const splicedArr = contacts.splice(randomIndex, 1);
 
 // Get the element from the spliced array
@@ -26,7 +26,7 @@ exampleRow.innerHTML = `
     </button>
   </td>
 `;
-
+ */
 // tableBody.appendChild(exampleRow);
 
 // ITERATION 1 - Display 3 contacts
@@ -60,18 +60,54 @@ threeContacts.forEach((contact) => {
 		contactRow.remove();
 	});
 
-  // ITERATION 3 - Like Buttons
-  const likeButton = contactRow.querySelector(".btn-like");
+	// ITERATION 3 - Like Buttons
+	const likeButton = contactRow.querySelector(".btn-like");
 
 	likeButton.addEventListener("click", () => {
 		likeButton.classList.toggle("selected");
 	});
 });
 
-
-
-// Your code goes here ...
-
 // Bonus: ITERATION 4 - Add Random Contacts
 
-// Your code goes here ...
+buttonAddRandom.addEventListener("click", () => {
+	// Splice 1 element from the contacts array at the random index
+	const randomIndex = Math.floor(Math.random() * contacts.length);
+	const splicedArr = contacts.splice(randomIndex, 1);
+
+	// Get the element from the spliced array
+	const randomContact = splicedArr[0];
+
+	const rowToAdd = document.createElement("tr");
+	rowToAdd.innerHTML = `
+  <td>
+    <img src="${randomContact.pictureUrl}" />
+  </td>
+  <td> ${randomContact.name} </td>
+  <td> ${randomContact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`;
+	tableBody.appendChild(rowToAdd);
+
+	// Delete Buttons
+
+	const deleteButton = rowToAdd.querySelector(".btn-delete");
+
+	deleteButton.addEventListener("click", () => {
+		rowToAdd.remove();
+	});
+
+	//  Like Buttons
+	const likeButton = rowToAdd.querySelector(".btn-like");
+
+	likeButton.addEventListener("click", () => {
+		likeButton.classList.toggle("selected");
+	});
+});
