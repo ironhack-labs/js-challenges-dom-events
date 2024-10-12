@@ -50,7 +50,15 @@ threeContacts.forEach((contact) => {
     </button>
   </td>
 `;
-tableBody.appendChild(contactRow);
+
+	tableBody.appendChild(contactRow);
+
+	const deleteButton = contactRow.querySelector(".btn-delete");
+
+	deleteButton.addEventListener("click", () => {
+		contactRow.remove();
+	});
+  
 });
 
 // Your code goes here ...
