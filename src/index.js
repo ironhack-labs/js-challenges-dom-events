@@ -52,22 +52,23 @@ threeContacts.forEach((contact) => {
 `;
 
 	tableBody.appendChild(contactRow);
+	// ITERATION 2 - Delete Buttons
 
 	const deleteButton = contactRow.querySelector(".btn-delete");
 
 	deleteButton.addEventListener("click", () => {
 		contactRow.remove();
 	});
-  
+
+  // ITERATION 3 - Like Buttons
+  const likeButton = contactRow.querySelector(".btn-like");
+
+	likeButton.addEventListener("click", () => {
+		likeButton.classList.toggle("selected");
+	});
 });
 
-// Your code goes here ...
 
-// ITERATION 2 - Delete Buttons
-
-// Your code goes here ...
-
-// ITERATION 3 - Like Buttons
 
 // Your code goes here ...
 
