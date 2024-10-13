@@ -112,7 +112,7 @@ for (let i = 0; i < threeContacts.length; i++) { //Con FOR recorro el array de t
 
   likeButton.addEventListener("click", function() {
 
-      newThreeRows.toggle(".btn-like.selected"); //NO FUNCIONA 
+      newThreeRows.classList.toggle(".btn-like.selected"); //NO FUNCIONA 
 
   }); 
 
