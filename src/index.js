@@ -55,6 +55,13 @@ firstContacts.forEach(elem => {
   `;
   tableBody.appendChild(exampleRow);
 
+  const button = exampleRow.querySelector(".btn-delete");
+  button.addEventListener("click", () => {
+    console.log ("button clicked");
+    exampleRow.remove(tableBody);
+
+  });
+
 })
 
 
