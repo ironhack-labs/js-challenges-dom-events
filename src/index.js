@@ -57,16 +57,16 @@ const createTableRow = (contact) => {
   return row;
 };
 
-
+  
 threeContacts.forEach((person) => {
   const element = createTableRow(person);
   tableBody.appendChild(element);
-});
+}); 
 
-  
+
 // ITERATION 2 - Delete Buttons
 
-// Your code goes here ...
+// Your code goes here ... 
 const deleteButtons = document.querySelectorAll(".btn-delete");
 deleteButtons.forEach((deleteButton) => {
   const row = deleteButton.closest("tr");
@@ -80,9 +80,15 @@ deleteButtons.forEach((deleteButton) => {
 // ITERATION 3 - Like Buttons
 
 // Your code goes here ...
+const likeButtons = document.querySelectorAll(".btn-like");
+likeButtons.forEach((likeButton) => {
 
-  
-  
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("selected");
+  });
+
+  console.log(likeButton, "like button here");
+});
 
 
 // Bonus: ITERATION 4 - Add Random Contacts
