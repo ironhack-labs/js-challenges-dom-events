@@ -55,27 +55,25 @@ firstContacts.forEach(elem => {
   `;
   tableBody.appendChild(exampleRow);
 
+  // ITERATION 2 - Delete Buttons
   const button = exampleRow.querySelector(".btn-delete");
   button.addEventListener("click", () => {
-    console.log ("button clicked");
+    console.log ("button delete clicked");
     exampleRow.remove(tableBody);
 
   });
 
-})
-
-
-  
-  // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
-
   // ITERATION 3 - Like Buttons
-
-  // Your code goes here ...
-
+const likeButton = exampleRow.querySelector (".btn-like");
+likeButton.addEventListener("click", () => {
+  console.log ("button like clicked");
+  const toggleElement = exampleRow.querySelector(".btn-like")
+  if (toggleElement.classList.contains("selected")) {  //classList takes the class within "."
+      toggleElement.classList.remove("selected");
+} else {
+  toggleElement.classList.add("selected");}
+});
+}); //cierra linea 42
   
   
 
