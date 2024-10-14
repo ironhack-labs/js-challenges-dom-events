@@ -94,7 +94,7 @@ likeButtons.forEach((likeButton) => {
 // Bonus: ITERATION 4 - Add Random Contacts
 
 // Your code goes here ...
-const addRandomContactButtons = document.querySelector("btn-add-random")
+const addRandomContactButtons = document.querySelector("#btn-add-random")
 
 addRandomContactButtons.addEventListener("click", () => {
   if (!contacts.length) {
