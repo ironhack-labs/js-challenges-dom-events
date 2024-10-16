@@ -36,7 +36,7 @@ tableBody.appendChild(exampleRow);
 
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
-const threeContacts = contacts.splice(0, 3);
+const threeContacts = contacts.slice(0, 3);
 
 // Your code goes here ..
 
@@ -51,7 +51,7 @@ threeContacts.forEach((contact) => {
     <td>${contact.name}</td>
     <td>${contact.popularity.toFixed(2)}</td>
     <td>
-      <button class="btn-favorite">Favorite</button>
+      <button class="btn-favorite">Like</button>
     </td>
     <td>
       <button class="btn-delete">Delete</button>
