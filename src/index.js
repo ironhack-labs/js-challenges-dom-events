@@ -96,3 +96,25 @@ tableBody.appendChild(contactRow);
 // Bonus: ITERATION 4 - Add Random Contacts
 
 // Your code goes here ...
+const addButton = document.querySelector("#btn-add-random"); 
+addButton.addEventListener('click', () => {
+  const randomNum = Math.floor(Math.random()*contacts.length);
+  const contactRand = contacts[randomNum];
+  const contactRow = document.createElement("tr");
+  contactRow.innerHTML = `
+   <td>
+      <img src="${contactRand.pictureUrl}" />
+   </td>
+   <td> ${contactRand.name} </td>
+   <td> ${contactRand.popularity.toFixed(2)} </td>
+   <td>
+      <button class="btn-delete">Delete</button>
+   </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+   </td>
+  `;
+  tableBody.appendChild(contactRow); 
+})
