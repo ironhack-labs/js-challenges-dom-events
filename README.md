@@ -202,7 +202,7 @@ For the final iteration, you will need to implement the event listener for the *
 
 <br>
 
-<!--
+
 ### Bonus: Iteration 5 | Sort Contacts by Name
 
 For this bonus iteration, implement the button *Sort by Name* and the corresponding logic to sort the contacts by name. You will need to do the following:
@@ -215,8 +215,7 @@ For this bonus iteration, implement the button *Sort by Name* and the correspond
     - Add event listeners to the *Delete* and *Like* buttons of the new rows.
 4. Update the rest of the code so that whenever the contacts list is updated, the `showContacts()` function is called to display the updated list.
 
-<br> 
--->
+<br>
 
 Happy coding! :blue_heart:
 
