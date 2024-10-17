@@ -30,6 +30,7 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 
 #btn-add-random {
@@ -43,12 +44,16 @@ td {
   height: 34px;
   padding: 3px 16px;
   border-radius: 4px;
-  margin: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0;
+  
   font-weight: 500;
   width: 200px;
 }
 
+#how-many {
+  width: 35px;
+  border: none;
+}
 /* Add a pseudo selector to animate button #btn-add-random when clicked, with confeti */
 #btn-add-random:active {
   background-color: #fd9a9a;

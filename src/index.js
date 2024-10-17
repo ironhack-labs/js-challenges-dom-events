@@ -1,6 +1,8 @@
 // HTML ELEMENTS
 const buttonAddRandom = document.querySelector("#btn-add-random");
+const multiplier = document.querySelector('#how-many');
 const tableBody = document.querySelector("tbody#contacts");
+
 
 // Create a function to get a random contact object from the contacts array
 const getRandomContact = () => {
@@ -33,15 +35,13 @@ const generateNewRow = (newContact) => {
 
   let deleteButton = newRow.querySelector(".btn-delete");
   deleteButton.addEventListener("click", () => {
-    const contactIndex = Contact.allContacts.indexOf(newContact)
-    Contact.allContacts.splice(contactIndex, 1)
-    newRow.remove()
-    console.log(Contact.allContacts);
+    const contactIndex = Contact.allContacts.indexOf(newContact);
+    Contact.allContacts.splice(contactIndex, 1);
+    newRow.remove();
   });
 
   let likeButton = newRow.querySelector(".btn-like");
-  likeButton.addEventListener("click", () => likeButton.classList.toggle("selected")
-  );
+  likeButton.addEventListener("click", () => likeButton.classList.toggle("selected"));
 
   tableBody.appendChild(newRow);
 };
@@ -57,7 +57,7 @@ const getFirstContacts = (numberOfContacts) => {
   })
 }
 
-getFirstContacts(5);
+// getFirstContacts(5);
 
 // ITERATION 1.2 - Display X contacts randomly
 // Crete a function to get X random contacts from the 'contacts' array.
@@ -71,42 +71,10 @@ const getRandomContacts = (numberOfContacts) => {
   }
 }
 
-getRandomContacts(5);
-
 // Bonus: ITERATION 4 - Add Random Contacts
 
-// Your code goes here ...
-
 buttonAddRandom.addEventListener("click", () => {
-  const currentRandomNumber = Math.floor(Math.random() * contacts.length);
-  const newRow = document.createElement("tr");
-  newRow.innerHTML = `
-    <td>
-    <img src="${contacts[currentRandomNumber].pictureUrl}" />
-    </td>
-    <td> ${contacts[currentRandomNumber].name} </td>
-    <td> ${contacts[currentRandomNumber].popularity.toFixed(2)} </td>
-    <td>
-    <button class="btn-delete">Delete</button>
-    </td>
-    <td>
-    <button class="btn-like">
-    <img src="./images/icon.png" alt="like" />
-    </button>
-    </td>
-    `;
-  let deleteButton = newRow.querySelector(".btn-delete");
-  /* deleteButton.addEventListener('click', () => tableBody.removeChild(newRow)) */
-  deleteButton.addEventListener("click", () => newRow.remove());
-
-  let likeButton = newRow.querySelector(".btn-like");
-  likeButton.addEventListener("click", () =>
-    likeButton.classList.toggle("selected")
-  );
-
-  tableBody.appendChild(newRow);
-  allContacts.push(contacts[currentRandomNumber]);
-  console.log(allContacts);
+  getRandomContacts(multiplier.value);
 });
 
 // Bonus: ITERATION 5 - Sort Contacts by Name
