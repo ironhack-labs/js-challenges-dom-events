@@ -9,9 +9,7 @@ class Contact {
     }
 }
 
-// create an instance of a new random contact
-const randomContact = getRandomContact();
-const newContact = new Contact(randomContact)
+
 
 
 

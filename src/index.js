@@ -35,7 +35,7 @@ const generateNewRow = (newContact) => {
 // ITERATION 1 - Display X contacts
 // Crete a function to get the first X contacts from the 'contacts' array.
 
-const getContacts = (numberOfContacts) => {
+const getFirstContacts = (numberOfContacts) => {
   const contactsArr = contacts.splice(0, numberOfContacts);
   contactsArr.forEach(contact => {
     const newContact = new Contact(contact);
@@ -43,7 +43,21 @@ const getContacts = (numberOfContacts) => {
   })
 }
 
-getContacts(10)
+getFirstContacts(5);
+
+// ITERATION 1.2 - Display X contacts randomly
+// Crete a function to get X random contacts from the 'contacts' array.
+
+const getRandomContacts = (numberOfContacts) => {
+  for (let i = 0; i < numberOfContacts; i++) {
+    // create an instance of a new random contact
+    const randomContact = getRandomContact();
+    const newContact = new Contact(randomContact);
+    generateNewRow(newContact);
+  }
+}
+
+getRandomContacts(5);
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
