@@ -1,4 +1,5 @@
 // HTML ELEMENTS
+const buttonDivElement = document.querySelector(".btn-container");
 const buttonAddRandom = document.querySelector("#btn-add-random");
 const multiplier = document.querySelector('#how-many');
 const tableBody = document.querySelector("tbody#contacts");
@@ -79,13 +80,12 @@ buttonAddRandom.addEventListener("click", () => {
 
 // Bonus: ITERATION 5 - Sort Contacts by Name
 
-// Your code goes here ...
-
 // 1. Create a new button with the text 'Sort by Name'.
 const body = document.querySelector("body");
 const sortButton = document.createElement("button");
 sortButton.innerHTML = "Sort by Name";
-body.appendChild(sortButton);
+sortButton.setAttribute('style', 'margin: 0 28vw 0 6vw')
+buttonDivElement.insertBefore(sortButton, buttonAddRandom);
 
 // 2. Create a new array with the contacts for the table. The array should contain all the contacts to be displayed in the table.
 
