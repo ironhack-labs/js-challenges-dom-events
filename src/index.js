@@ -20,6 +20,15 @@ const generateNewRow = (newContact) => {
       </button>
     </td>
   `;
+
+  let deleteButton = newRow.querySelector(".btn-delete");
+  deleteButton.addEventListener("click", () => newRow.remove());
+
+  let likeButton = newRow.querySelector(".btn-like");
+  likeButton.addEventListener("click", () =>
+    likeButton.classList.toggle("selected")
+  );
+  
   tableBody.appendChild(newRow);
 };
 
@@ -107,7 +116,6 @@ threeContacts.forEach((contact) => {
   );
 
   tableBody.appendChild(newRow);
-  allContacts.push(contact);
 });
 
 // Bonus: ITERATION 4 - Add Random Contacts
