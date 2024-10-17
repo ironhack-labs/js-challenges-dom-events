@@ -1,3 +1,4 @@
+const allContacts = [];
 // HTML ELEMENTS
 const buttonAddRandom = document.querySelector("#btn-add-random");
 const tableBody = document.querySelector("tbody#contacts");
@@ -27,9 +28,8 @@ exampleRow.innerHTML = `
     </button>
   </td>
 `;
-
 tableBody.appendChild(exampleRow);
-
+allContacts.push(randomContact);
 
 
 
@@ -66,91 +66,95 @@ const threeContacts = contacts.splice(0, 3);
 // Your code goes here ...
 
 // threeContacts.forEach(contact => {
-//   const newRow = document.createElement("tr");
-//   newRow.innerHTML = `
-//   <td>
-//   <img src="${contact.pictureUrl}" />
-//   </td>
-//   <td> ${contact.name} </td>
-//   <td> ${contact.popularity.toFixed(2)} </td>
-//   <td>
-//   <button class="btn-delete">Delete</button>
-//   </td>
-//   <td>
-//   <button class="btn-like">
-//   <img src="./images/icon.png" alt="like" />
-//   </button>
-//   </td>
-//   `;
-//   let deleteButton = newRow.querySelector('.btn-delete');
-//   /* deleteButton.addEventListener('click', () => tableBody.removeChild(newRow)) */
-//   deleteButton.addEventListener('click', () => newRow.remove())
-//   tableBody.appendChild(newRow);
-// });
-
-
-
-// ITERATION 3 - Like Buttons
-
-// Your code goes here ...
-threeContacts.forEach(contact => {
-  const newRow = document.createElement("tr");
-  newRow.innerHTML = `
-  <td>
-  <img src="${contact.pictureUrl}" />
-  </td>
-  <td> ${contact.name} </td>
-  <td> ${contact.popularity.toFixed(2)} </td>
-  <td>
-  <button class="btn-delete">Delete</button>
-  </td>
-  <td>
-  <button class="btn-like">
-  <img src="./images/icon.png" alt="like" />
-  </button>
-  </td>
-  `;
-  let deleteButton = newRow.querySelector('.btn-delete');
-  /* deleteButton.addEventListener('click', () => tableBody.removeChild(newRow)) */
-  deleteButton.addEventListener('click', () => newRow.remove())
+  //   const newRow = document.createElement("tr");
+  //   newRow.innerHTML = `
+  //   <td>
+  //   <img src="${contact.pictureUrl}" />
+  //   </td>
+  //   <td> ${contact.name} </td>
+  //   <td> ${contact.popularity.toFixed(2)} </td>
+  //   <td>
+  //   <button class="btn-delete">Delete</button>
+  //   </td>
+  //   <td>
+  //   <button class="btn-like">
+  //   <img src="./images/icon.png" alt="like" />
+  //   </button>
+  //   </td>
+  //   `;
+  //   let deleteButton = newRow.querySelector('.btn-delete');
+  //   /* deleteButton.addEventListener('click', () => tableBody.removeChild(newRow)) */
+  //   deleteButton.addEventListener('click', () => newRow.remove())
+  //   tableBody.appendChild(newRow);
+  // });
   
-  let likeButton = newRow.querySelector('.btn-like');
-  likeButton.addEventListener('click', () => likeButton.classList.toggle('selected'))
-
-  tableBody.appendChild(newRow);
-});
-
-
-// Bonus: ITERATION 4 - Add Random Contacts
-
-// Your code goes here ...
-
-buttonAddRandom.addEventListener('click', () => {
-  const currentRandomNumber = Math.floor(Math.random() * contacts.length);
-  const newRow = document.createElement("tr");
-  newRow.innerHTML = `
-  <td>
-  <img src="${contacts[currentRandomNumber].pictureUrl}" />
-  </td>
-  <td> ${contacts[currentRandomNumber].name} </td>
-  <td> ${contacts[currentRandomNumber].popularity.toFixed(2)} </td>
-  <td>
-  <button class="btn-delete">Delete</button>
-  </td>
-  <td>
-  <button class="btn-like">
-  <img src="./images/icon.png" alt="like" />
-  </button>
-  </td>
-  `;
-  let deleteButton = newRow.querySelector('.btn-delete');
-  /* deleteButton.addEventListener('click', () => tableBody.removeChild(newRow)) */
-  deleteButton.addEventListener('click', () => newRow.remove())
   
-  let likeButton = newRow.querySelector('.btn-like');
-  likeButton.addEventListener('click', () => likeButton.classList.toggle('selected'))
   
-  tableBody.appendChild(newRow);
+  // ITERATION 3 - Like Buttons
+  
+  // Your code goes here ...
+  threeContacts.forEach(contact => {
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+    <td>
+    <img src="${contact.pictureUrl}" />
+    </td>
+    <td> ${contact.name} </td>
+    <td> ${contact.popularity.toFixed(2)} </td>
+    <td>
+    <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+    <button class="btn-like">
+    <img src="./images/icon.png" alt="like" />
+    </button>
+    </td>
+    `;
+    let deleteButton = newRow.querySelector('.btn-delete');
+    /* deleteButton.addEventListener('click', () => tableBody.removeChild(newRow)) */
+    deleteButton.addEventListener('click', () => newRow.remove())
+    
+    let likeButton = newRow.querySelector('.btn-like');
+    likeButton.addEventListener('click', () => likeButton.classList.toggle('selected'))
+    
+    tableBody.appendChild(newRow);
+    allContacts.push(contact);
+  });
+  
+  
+  // Bonus: ITERATION 4 - Add Random Contacts
+  
+  // Your code goes here ...
+  
+  buttonAddRandom.addEventListener('click', () => {
+    const currentRandomNumber = Math.floor(Math.random() * contacts.length);
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+    <td>
+    <img src="${contacts[currentRandomNumber].pictureUrl}" />
+    </td>
+    <td> ${contacts[currentRandomNumber].name} </td>
+    <td> ${contacts[currentRandomNumber].popularity.toFixed(2)} </td>
+    <td>
+    <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+    <button class="btn-like">
+    <img src="./images/icon.png" alt="like" />
+    </button>
+    </td>
+    `;
+    let deleteButton = newRow.querySelector('.btn-delete');
+    /* deleteButton.addEventListener('click', () => tableBody.removeChild(newRow)) */
+    deleteButton.addEventListener('click', () => newRow.remove())
+    
+    let likeButton = newRow.querySelector('.btn-like');
+    likeButton.addEventListener('click', () => likeButton.classList.toggle('selected'))
+    
+    tableBody.appendChild(newRow);
+    allContacts.push(contacts[currentRandomNumber])
+    console.log(allContacts);
+    
 })
 
 
@@ -183,10 +187,10 @@ const showContacts = (contactsArr) => {
     const newRow = document.createElement("tr");
     newRow.innerHTML = `
     <td>
-    <img src="${contactsArr[i].contactImage}" />
+    <img src="${contactsArr[i].pictureUrl}" />
     </td>
-    <td> ${contactsArr[i].contactName} </td>
-    <td> ${contactsArr[i].popularityScore} </td>
+    <td> ${contactsArr[i].name} </td>
+    <td> ${contactsArr[i].popularity} </td>
     <td>
     <button class="btn-delete">Delete</button>
     </td>
@@ -210,7 +214,7 @@ const showContacts = (contactsArr) => {
 }
 
 sortButton.addEventListener('click', () => {
-  const arrayContactList = [];
+ /*  const arrayContactList = [];
   const myContacts = tableBody.querySelectorAll('tr');
   myContacts.forEach(contact => {
     const contactData = contact.querySelectorAll('td');
@@ -221,16 +225,18 @@ sortButton.addEventListener('click', () => {
     };
     arrayContactList.push(contactObject);
   })
-  console.log(arrayContactList);
+  console.log(allContacts); */
   
-  arrayContactList.sort((a, b) => {
-    if (a.contactName > b.contactName) {
+  allContacts.sort((a, b) => {
+    if (a.name > b.name) {
       return 1;
-    } else if (a.contactName === b.contactName) {
+    } else if (a.name === b.name) {
       return 0;
     } else {
       return -1
     }
   });
-  showContacts(arrayContactList)
+  console.log('después del sort', allContacts);
+  
+  showContacts(allContacts)
 })
