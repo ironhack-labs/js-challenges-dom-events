@@ -365,13 +365,5 @@ const contacts = [
   },
 ];
 
-// Create a function to get a random contact object from the contacts array
-const getRandomContact = () => {
-  const randomIndex = Math.floor(Math.random() * contacts.length);
-  const splicedArr = contacts.splice(randomIndex, 1);
-  
-  // Get the element from the spliced array
-  const randomContact = splicedArr[0];
-  return randomContact;
-}
+
 

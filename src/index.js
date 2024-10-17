@@ -2,6 +2,16 @@
 const buttonAddRandom = document.querySelector("#btn-add-random");
 const tableBody = document.querySelector("tbody#contacts");
 
+// Create a function to get a random contact object from the contacts array
+const getRandomContact = () => {
+  const randomIndex = Math.floor(Math.random() * contacts.length);
+  const splicedArr = contacts.splice(randomIndex, 1);
+  
+  // Get the element from the spliced array
+  const randomContact = splicedArr[0];
+  return randomContact;
+}
+
 // create a function to generate a tr for a new contact
 const generateNewRow = (newContact) => {
   const newRow = document.createElement("tr");
@@ -22,11 +32,15 @@ const generateNewRow = (newContact) => {
   `;
 
   let deleteButton = newRow.querySelector(".btn-delete");
-  deleteButton.addEventListener("click", () => newRow.remove());
+  deleteButton.addEventListener("click", () => {
+    const contactIndex = Contact.allContacts.indexOf(newContact)
+    Contact.allContacts.splice(contactIndex, 1)
+    newRow.remove()
+    console.log(Contact.allContacts);
+  });
 
   let likeButton = newRow.querySelector(".btn-like");
-  likeButton.addEventListener("click", () =>
-    likeButton.classList.toggle("selected")
+  likeButton.addEventListener("click", () => likeButton.classList.toggle("selected")
   );
 
   tableBody.appendChild(newRow);
@@ -176,3 +190,6 @@ sortButton.addEventListener("click", () => {
 
   showContacts(allContacts);
 });
+
+
+
