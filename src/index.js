@@ -28,95 +28,22 @@ const generateNewRow = (newContact) => {
   likeButton.addEventListener("click", () =>
     likeButton.classList.toggle("selected")
   );
-  
+
   tableBody.appendChild(newRow);
 };
 
-// ITERATION 1 - Display 3 contacts
-// Get the first 3 contacts from the 'contacts' array.
-const threeContacts = contacts.splice(0, 3);
+// ITERATION 1 - Display X contacts
+// Crete a function to get the first X contacts from the 'contacts' array.
 
-// Your code goes here ...
+const getContacts = (numberOfContacts) => {
+  const contactsArr = contacts.splice(0, numberOfContacts);
+  contactsArr.forEach(contact => {
+    const newContact = new Contact(contact);
+    generateNewRow(newContact);
+  })
+}
 
-/* threeContacts.forEach(contact => {
-  const newRow = document.createElement("tr");
-  newRow.innerHTML = `
-  <td>
-  <img src="${contact.pictureUrl}" />
-  </td>
-  <td> ${contact.name} </td>
-  <td> ${contact.popularity.toFixed(2)} </td>
-  <td>
-  <button class="btn-delete">Delete</button>
-  </td>
-  <td>
-  <button class="btn-like">
-  <img src="./images/icon.png" alt="like" />
-  </button>
-  </td>
-  `;
-  tableBody.appendChild(newRow);
-  }); 
-*/
-
-// ITERATION 2 - Delete Buttons
-
-// Your code goes here ...
-
-// threeContacts.forEach(contact => {
-//   const newRow = document.createElement("tr");
-//   newRow.innerHTML = `
-//   <td>
-//   <img src="${contact.pictureUrl}" />
-//   </td>
-//   <td> ${contact.name} </td>
-//   <td> ${contact.popularity.toFixed(2)} </td>
-//   <td>
-//   <button class="btn-delete">Delete</button>
-//   </td>
-//   <td>
-//   <button class="btn-like">
-//   <img src="./images/icon.png" alt="like" />
-//   </button>
-//   </td>
-//   `;
-//   let deleteButton = newRow.querySelector('.btn-delete');
-//   /* deleteButton.addEventListener('click', () => tableBody.removeChild(newRow)) */
-//   deleteButton.addEventListener('click', () => newRow.remove())
-//   tableBody.appendChild(newRow);
-// });
-
-// ITERATION 3 - Like Buttons
-
-// Your code goes here ...
-threeContacts.forEach((contact) => {
-  const newRow = document.createElement("tr");
-  newRow.innerHTML = `
-    <td>
-    <img src="${contact.pictureUrl}" />
-    </td>
-    <td> ${contact.name} </td>
-    <td> ${contact.popularity.toFixed(2)} </td>
-    <td>
-    <button class="btn-delete">Delete</button>
-    </td>
-    <td>
-    <button class="btn-like">
-    <img src="./images/icon.png" alt="like" />
-    </button>
-    </td>
-    `;
-  let deleteButton = newRow.querySelector(".btn-delete");
-  /* deleteButton.addEventListener('click', () => tableBody.removeChild(newRow)) */
-  deleteButton.addEventListener("click", () => newRow.remove());
-
-  let likeButton = newRow.querySelector(".btn-like");
-  likeButton.addEventListener("click", () =>
-    likeButton.classList.toggle("selected")
-  );
-
-  tableBody.appendChild(newRow);
-});
+getContacts(10)
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
