@@ -1,4 +1,3 @@
-// HTML ELEMENTS
 const buttonAddRandom = document.querySelector("#btn-add-random");
 const tableBody = document.querySelector("tbody#contacts");
 
@@ -12,6 +11,7 @@ const splicedArr = contacts.splice(randomIndex, 1);
 const randomContact = splicedArr[0];
 
 const exampleRow = document.createElement("tr");
+
 exampleRow.innerHTML = `
   <td>
     <img src="${randomContact.pictureUrl}" />
@@ -38,22 +38,65 @@ tableBody.appendChild(exampleRow);
 // Get the first 3 contacts from the 'contacts' array.
 const threeContacts = contacts.splice(0, 3);
 
+threeContacts.forEach(eachContact => {
+
+  const exampleRow = document.createElement("tr");
+
+  exampleRow.innerHTML = `
+  <td>
+    <img src="${eachContact.pictureUrl}" />
+  </td>
+  <td> ${eachContact.name} </td>
+  <td> ${eachContact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`;
+
+  tableBody.appendChild(exampleRow);
+
+
+})
+
 // Your code goes here ...
 
 
-  
-  // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
 
-  // ITERATION 3 - Like Buttons
+// ITERATION 2 - Delete Buttons
 
-  // Your code goes here ...
+const tableRows = document.querySelectorAll('tbody tr')
 
-  
-  
+tableRows.forEach(eachRow => {
+
+  eachRow.querySelector('button').onclick = () => {
+
+    eachRow.remove()
+  }
+})
+
+console.log(tableRows)
+
+
+
+// ITERATION 3 - Like Buttons
+
+const likeButtons = document.querySelectorAll('.btn-like')
+
+likeButtons.forEach(eachLikeB => {
+
+  eachLikeB.onclick = () => {
+
+    eachLikeB.classList.add('selected')
+  }
+})
+
+
+
 
 
 // Bonus: ITERATION 4 - Add Random Contacts
