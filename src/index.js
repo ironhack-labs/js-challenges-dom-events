@@ -51,9 +51,7 @@ class ContactsList {
 
   render(){
     this.table.innerHTML = '';
-    for(let contact of this.contactsRows){
-      this.table.appendChild(contact);
-    }
+    this.contactsRows.forEach(contact => this.table.appendChild(contact));
   }
 
   addContact(contact) {
