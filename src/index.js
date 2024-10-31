@@ -52,7 +52,7 @@ function renderContact(contact) {
   const deleteButton = tableRow.querySelector('.btn-delete');
 
   deleteButton.addEventListener('click', () => {
-    tableBody.removeChild(tableRow);
+    tableRow.remove();
   });
 
   const likeButton = tableRow.querySelector('.btn-like');
