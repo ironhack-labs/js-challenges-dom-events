@@ -80,6 +80,10 @@ td {
   height: 18px;
 }
 
+.selected {
+  background-color: lightcoral;
+}
+
 .btn-like.selected {
   background-color: #fd9a9a;
 }
