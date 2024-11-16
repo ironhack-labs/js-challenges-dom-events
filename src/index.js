@@ -38,39 +38,28 @@ tableBody.appendChild(exampleRow);
 // Get the first 3 contacts from the 'contacts' array.
 const threeContacts = contacts.splice(0, 3);
 threeContacts.forEach(contact => {
-  const newRow = document.createElement('tr')
-  newRow.innerHTML = 
-  `
-  <td>
-    <img src="${contact.pictureUrl}" />
-  </td>
-  <td> ${contact.name} </td>
-  <td> ${contact.popularity.toFixed(2)} </td>
-  <td>
-    <button class="btn-delete">Delete</button>
-  </td>
-  <td>
-    <button class="btn-like">
-      <img src="./images/icon.png" alt="like" />
-    </button>
-  </td>
-`;
-tableBody.appendChild(newRow);
+  const newRow = document.createElement('tr');
+  newRow.innerHTML = `
+    <td>
+      <img src="${contact.pictureUrl}" />
+    </td>
+    <td> ${contact.name} </td>
+    <td> ${contact.popularity.toFixed(2)} </td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+    </td>
+  `;
+  tableBody.appendChild(newRow);
 });
-  const deleteBtn = newRow.querySelector(".btn-delete");
-  deleteBtn.addEventListener("click", () => {
-    newRow.remove();
-  });
-  const likeBtn = newRow.querySelector(".btn-like");
-  likeBtn.addEventListener("click", () => {
-  
-    likeBtn.classList.toggle("liked");
-    likeBtn.querySelector("img").src = likeBtn.classList.contains("liked")
-      ? "images/icon.png"
-      : "./images/icon.png";
-  });
 
+ 
 
+ 
 // Your code goes here ...
 
 
