@@ -45,7 +45,7 @@ const threeContacts = contacts.splice(0, 3);
 threeContacts.forEach((eachContact) => {
   const newRow = document.createElement("tr");
     newRow.innerHTML = `
-    <td>
+    <td id="${eachContact}">
       <img src="${eachContact.pictureUrl}" />
     </td>
     <td> ${eachContact.name} </td>
@@ -59,24 +59,31 @@ threeContacts.forEach((eachContact) => {
       </button>
     </td>
     `;
-    console.log("test")
+    // console.log("test")
     tableBody.appendChild(newRow);
-});
 
+  
   
   // ITERATION 2 - Delete Buttons
   
   // Your code goes here ...
-  
-  
+  const deleteBtn = newRow.querySelector(".btn-delete");
+
+    deleteBtn.addEventListener('click', () => {
+      newRow.remove();
+    });
 
   // ITERATION 3 - Like Buttons
 
   // Your code goes here ...
+  const likeBtn = newRow.querySelector(".btn-like");
+
+  likeBtn.addEventListener('click', () => {
+    likeBtn.classList.toggle("selected");
+  });
 
   
-  
-
+});
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
