@@ -37,16 +37,49 @@ tableBody.appendChild(exampleRow);
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
 const threeContacts = contacts.splice(0, 3);
-
 // Your code goes here ...
+threeContacts.forEach(function (currentContact){
+  const exampleRow = document.createElement("tr");
+  exampleRow.innerHTML = `
+    <td>
+      <img src="${currentContact.pictureUrl}" />
+    </td>
+    <td> ${currentContact.name} </td>
+    <td> ${currentContact.popularity.toFixed(2)} </td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+    </td>
+    
+  `;
+  exampleRow.querySelector('.btn-delete').addEventListener("click", () => {
+    exampleRow.remove();
+});
+
+  tableBody.appendChild(exampleRow);
+ //currentContact.querySelector('.btn.btn-delete').setEventListener('Delete')
+ //exampleRow.addEventListener("click", () => {
+  //exampleRow.classList.toggle("Delete");
+});
+
 
 
   
   // ITERATION 2 - Delete Buttons
   
   // Your code goes here ...
-  
-  
+ /* threeContacts.forEach(function (...currentContact){
+
+    if(currentContact.getEventListener('click'), () => {
+      console.log(currentContact.querySelector('.btn.btn-delete').getEventListener('click'))
+      currentContact.remove();
+    }
+  })*/
+
 
   // ITERATION 3 - Like Buttons
 
