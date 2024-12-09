@@ -63,7 +63,13 @@ threeContacts.forEach(contact => {
   // ITERATION 2 - Delete Buttons
   
   // Your code goes here ...
-  
+  tableBody.addEventListener('click', (event) => {
+    if (event.target.classList.contains('btn-delete')) {
+      // Get the row (tr) of the button clicked
+      const row = event.target.closest('tr')
+      row.remove();
+    }
+  })
   
 
   // ITERATION 3 - Like Buttons
