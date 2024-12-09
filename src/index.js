@@ -39,18 +39,56 @@ tableBody.appendChild(exampleRow);
 const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
+threeContacts.forEach(contact => {
+  const contactRow = document.createElement("tr")
+  contactRow.innerHTML = `
+    <td>
+      <img src="${contact.pictureUrl}" />
+    </td>
+    <td>${contact.name}</td>
+    <td>${contact.popularity.toFixed(2)}</td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+    </td>
+  `
 
-
+  tableBody.appendChild(contactRow)
+})
   
   // ITERATION 2 - Delete Buttons
   
   // Your code goes here ...
-  
+  tableBody.addEventListener('click', (event) => {
+    if (event.target.classList.contains('btn-delete')) {
+      // Get the row (tr) of the button clicked
+      const row = event.target.closest('tr')
+      row.remove();
+    }
+  })
   
 
   // ITERATION 3 - Like Buttons
 
-  // Your code goes here ...
+  /tableBody.addEventListener('click', (event) => {
+
+    
+    if (event.target.closest('.btn-like')) {
+
+      const likeButton = event.target.closest('.btn-like')
+      const img = likeButton.querySelector('img')
+      if (img.src.includes('icon.png')) {
+        img.src = './images/icon-liked.png'
+      } else {
+        img.src = './images/icon.png'
+      }
+
+    }
+  })
 
   
   
@@ -59,3 +97,27 @@ const threeContacts = contacts.splice(0, 3);
 // Bonus: ITERATION 4 - Add Random Contacts
 
 // Your code goes here ...
+buttonAddRandom.addEventListener('click', () => {
+
+  const randomIndex = Math.floor(Math.random() * contacts.length);
+  const randomContact = contacts.splice(randomIndex, 1)[0] 
+
+  
+  const newRow = document.createElement("tr")
+  newRow.innerHTML = `
+    <td>
+      <img src="${randomContact.pictureUrl}" />
+    </td>
+    <td>${randomContact.name}</td>
+    <td>${randomContact.popularity.toFixed(2)}</td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+    </td>
+  `
+  tableBody.appendChild(newRow)
+})
