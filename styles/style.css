@@ -102,3 +102,7 @@ td {
   transition: 0.2s;
   background-color: #a9a7a7;  
 }
+
+.selected {
+  background-color: #ec2222;
+}
