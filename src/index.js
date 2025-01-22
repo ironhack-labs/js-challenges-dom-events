@@ -99,3 +99,27 @@ for (let i = 1; i < tableRow.length; i++) {
 // Bonus: ITERATION 4 - Add Random Contacts
 
 // Your code goes here ...
+function printUI(){
+  console.log(splicedArr)
+    const exampleRow = document.createElement("tr");
+    exampleRow.innerHTML = `
+      <td>
+        <img src="${splicedArr[0].pictureUrl}" />
+      </td>
+      <td> ${splicedArr[0].name} </td>
+      <td> ${splicedArr[0].popularity.toFixed(2)} </td>
+      <td>
+        <button class="btn-delete">Delete</button>
+      </td>
+      <td>
+        <button class="btn-like">
+          <img src="./images/icon.png" alt="like" />
+        </button>
+      </td>
+    `;
+    tableBody.appendChild(exampleRow);
+  }
+
+  buttonAddRandom.addEventListener("click", () => {
+    printUI();
+  })
