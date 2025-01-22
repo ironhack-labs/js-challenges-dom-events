@@ -146,7 +146,7 @@ threeContacts.forEach(contact => {
   }
   const likebutton = rows.querySelector(".btn-like")
   likebutton.onclick = function() {
-    this.classList.toggle("btn-like.selected")
+    this.classList.toggle("selected")
     
   }
 
