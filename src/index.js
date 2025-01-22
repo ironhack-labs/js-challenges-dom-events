@@ -39,16 +39,61 @@ tableBody.appendChild(exampleRow);
 const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
+threeContacts.forEach(element => {
+  const exampleRow = document.createElement("tr")
+exampleRow.innerHTML = `
+  <td>
+    <img src="${element.pictureUrl}" />
+  </td>
+  <td> ${element.name} </td>
+  <td> ${element.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`
+
+tableBody.appendChild(exampleRow)
+})
+
+
 
 
   
   // ITERATION 2 - Delete Buttons
+
+  const addDeleteButtonListeners = () => {
+    const deleteButtons = document.querySelectorAll(".btn-delete")
+    deleteButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        // Find the parent row and remove it
+        const row = button.closest("tr")
+        row.remove()
+      });
+    });
+  };
+  addDeleteButtonListeners()
+
   
   // Your code goes here ...
   
   
 
   // ITERATION 3 - Like Buttons
+
+  const addLikeButtonListeners = () => {
+    const likeButtons = document.querySelectorAll(".btn-like")
+    likeButtons.forEach(button => {
+      button.addEventListener("click",() => {
+        button.classList.toggle("selected")
+      })
+    })
+  }
+  addLikeButtonListeners()
 
   // Your code goes here ...
 
@@ -59,3 +104,37 @@ const threeContacts = contacts.splice(0, 3);
 // Bonus: ITERATION 4 - Add Random Contacts
 
 // Your code goes here ...
+
+const addRandomButtonListeners = () => {
+  
+  buttonAddRandom.addEventListener("click", () => {
+    const randomIndex = Math.floor(Math.random() * contacts.length)
+    const splicedArr = contacts.splice(randomIndex, 1)
+    const randomContact = splicedArr[0]
+
+    const exampleRow = document.createElement("tr")
+    exampleRow.innerHTML = `
+      <td>
+        <img src="${randomContact.pictureUrl}" />
+      </td>
+      <td> ${randomContact.name} </td>
+      <td> ${randomContact.popularity.toFixed(2)} </td>
+      <td>
+        <button class="btn-delete">Delete</button>
+      </td>
+      <td>
+        <button class="btn-like">
+          <img src="./images/icon.png" alt="like" />
+        </button>
+      </td>
+    `
+
+    tableBody.appendChild(exampleRow);
+
+    addDeleteButtonListeners();
+    addLikeButtonListeners();
+   
+  })
+  
+}
+addRandomButtonListeners ();
