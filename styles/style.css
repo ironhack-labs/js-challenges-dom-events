@@ -80,8 +80,12 @@ td {
   height: 18px;
 }
 
-.btn-like.selected {
-  background-color: #fd9a9a;
+
+    .selected .btn-like {
+      background-color: red;
+      /* Button turns red when the row is selected */
+      color: white;
+      /* Ensure the text color is white for contrast */
 }
 
 .btn-delete {
