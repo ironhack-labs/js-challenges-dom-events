@@ -36,21 +36,61 @@ tableBody.appendChild(exampleRow);
 
 // ITERATION 1 - Display 3 contacts
 // Get the first 3 contacts from the 'contacts' array.
-const threeContacts = contacts.splice(0, 3);
+//const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
-
+const copyContacts = [...contacts];
+//console.table(copyContacts);
+const pieceContacts = copyContacts.splice(0,3);
+pieceContacts.forEach(element => {
+  const exampleRow = document.createElement("tr");
+  exampleRow.innerHTML = `
+    <td>
+      <img src="${element.pictureUrl}" />
+    </td>
+    <td> ${element.name} </td>
+    <td> ${element.popularity.toFixed(2)} </td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+    </td>
+  `;
+  tableBody.appendChild(exampleRow);
+});
 
   
-  // ITERATION 2 - Delete Buttons
-  
-  // Your code goes here ...
-  
-  
+// ITERATION 2 - Delete Buttons
 
-  // ITERATION 3 - Like Buttons
+// Your code goes here ...
+const tableRow = document.querySelectorAll('tr');
 
-  // Your code goes here ...
+for (let i = 1; i < tableRow.length; i++) {
+  console.log(tableRow[i]);
+  let deleteButtonTarget = tableRow[i].querySelector('.btn-delete');
+  deleteButtonTarget.addEventListener("click", () => {
+    tableBody.removeChild(tableRow[i]);
+  });
+}
+
+
+
+// ITERATION 3 - Like Buttons
+
+// Your code goes here ...
+for (let i = 1; i < tableRow.length; i++) {
+  let likeButtonTarget = tableRow[i].querySelector('.btn-like');
+  likeButtonTarget.onclick = () => {
+    if (likeButtonTarget.className === 'btn-like') {
+      likeButtonTarget.classList.add('selected');
+    } else {
+      likeButtonTarget.classList.remove('selected');
+    }
+  };
+}
 
   
   
