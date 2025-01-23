@@ -39,6 +39,27 @@ tableBody.appendChild(exampleRow);
 const threeContacts = contacts.splice(0, 3);
 
 // Your code goes here ...
+threeContacts.forEach(function(contact){
+  const Rows=document.createElement("tr");
+  Rows.innerHTML = `
+  <td>
+    <img src="${contact.pictureUrl}" />
+  </td>
+  <td> ${contact.name} </td>
+  <td> ${contact.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`;
+tableBody.appendChild(Rows);
+});
+ 
+
 
 
   
@@ -46,11 +67,34 @@ const threeContacts = contacts.splice(0, 3);
   
   // Your code goes here ...
   
+  const Deletebtn=document.querySelectorAll(".btn-delete");
   
+  Deletebtn.forEach((button)=>{
+    button.addEventListener('click',(e)=>{
+    const RowtoDel=e.target.closest("tr");
+    RowtoDel.remove();  
+
+    })
+
+  })
+
+ 
 
   // ITERATION 3 - Like Buttons
 
   // Your code goes here ...
+  const Like = document.querySelectorAll(".btn-like");
+
+  Like.forEach((icon) => {
+    icon.addEventListener("click", (e) => {
+      
+      e.target.style.backgroundColor = "red"; 
+      const Button=e.target.closest(tr);
+      Button.classList.toggle("selected");
+      
+    });
+    
+  });
 
   
   
