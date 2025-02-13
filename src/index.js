@@ -72,7 +72,7 @@ for (let i=0; i<threeContacts.length; i++) {
       </td>
     `;
 
-    tableBody.appendChild(filaAInsertar);
+    tableBody.append(filaAInsertar);
 
 
     // ITERACIÓN 2
@@ -93,8 +93,8 @@ for (let i=0; i<threeContacts.length; i++) {
 
       console.log("Le estás ando al botón LIKE");
 
-      filaAInsertar.classList.toggle(".btn-like");
-
+      likeBoton.classList.toggle("selected");
+      //filaAInsertar.style.backgroundColor = "#fd9a9a";
     })
 
 }
